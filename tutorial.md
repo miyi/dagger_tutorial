@@ -4,7 +4,7 @@ dagger.js is a directive based web framework that is natively supported by the b
 
 ###State management
 
-The most defining feature of the modern web is the interactiveness of the many elements on a single webpage. Each element may present changing information or be manipuated by user interaction with a seperate element. Behind it all is a state management system that keeps track of all the moving pieces of a website. Dagger manages it's state values through lifecycle directives. Let's see what that looks like in action through creating a task card.
+The most defining feature of the modern web is the interactiveness of the many elements on a single webpage. Each element may present changing information or be manipulated by user interaction with a seperate element. Behind it all is a state management system that keeps track of all the moving pieces of a website. Dagger manages it's state values through lifecycle directives. Let's see what that looks like in action through creating a task card.
 
 `
   <div +loading="{
