@@ -1,0 +1,48 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <style>
+      [dg-cloak] {
+        display: none !important;
+      }
+    </style>
+    <!-- cloak style -->
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="highlightjs/night-owl.min.css" />
+    <script src="highlightjs/highlight.min.js"></script>
+    <script
+      type="module"
+      crossorigin="anonymous"
+      src="https://cdn.jsdelivr.net/npm/@peakman/dagger.js@0.9.17/dagger.release.js"
+      defer
+    ></script>
+    <!-- dagger.js script -->
+    <script type="dagger/configs">
+      {
+        "_": "/js/script.js"
+      }
+    </script>
+    <!-- dagger configs -->
+    <title>tutorial demo page</title>
+  </head>
+  <body dg-cloak>
+    <div class="code-box" +loading="loading()">
+      <pre><code class="html"><meta author="Joe Example"></code></pre>
+      <pre><template $html="code"></template></pre>
+      <div $html="code2"></div>
+    </div>
+    <div class="render-box">
+      <div class="row">
+        <div class="column">
+          <span class="dot" style="background: #ed594a"></span>
+          <span class="dot" style="background: #fdd800"></span>
+          <span class="dot" style="background: #5ac05a"></span>
+        </div>
+      </div>
+      <container class="content"> </container>
+    </div>
+  </body>
+  <script src="highlightjs/custom.js"></script>
+</html>

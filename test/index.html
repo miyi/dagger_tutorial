@@ -1,0 +1,48 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <style>
+      [dg-cloak] {
+        display: none !important;
+      }
+    </style>
+    <!-- cloak style -->
+    <script
+      type="module"
+      crossorigin="anonymous"
+      src="https://cdn.jsdelivr.net/npm/@peakman/dagger.js@0.9.17/dagger.release.js"
+      defer
+    ></script>
+    <!-- dagger.js script -->
+    <script type="dagger/configs"></script>
+    <!-- dagger configs -->
+    <title>dagger demo page</title>
+  </head>
+
+  <body dg-cloak>
+    <fieldset class="green" +loading="{ data: 1, string: 'string1' }">
+      <legend>Here we created a new "scope" with "+loading" directive:</legend>
+      <div>
+        The value of "$scope.data" is "${ data }" (defined in the current
+        scope).
+      </div>
+      <div>
+        The value of "$scope.string" is "${ string }" (defined in the current
+        scope).
+      </div>
+    </fieldset>
+    <fieldset class="red" +loading="1234">
+      <legend>No custom scope created here:</legend>
+      <div>
+        The value of "$scope.data" is "${ $scope.data }" (not defined in the
+        current scope).
+      </div>
+      <div>
+        The value of "$scope.string" is "${ $scope.string }" (not defined in the
+        current scope).
+      </div>
+    </fieldset>
+  </body>
+</html>
