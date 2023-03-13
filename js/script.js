@@ -1,42 +1,29 @@
-// const codeBlockA1 = `
-// <code class='html'>
-// <div +loading="{
-//   title: 'hello',
-//   description: 'create the first task card',
-//   completed: false,
-//   assignee: 'Ming'
-// }">
-//   <div>
-//     <a>${scope.title}</a>
-//     <a>description:</a>
-//     <a>${scope.description}</a>
-//     <a>${scope.assignee}</a>
-//   <div>
-// </div>
-// </code>
-// `;
+const codeBlockA1 = `
+<div class="content">
+<div class="card">
+  <div class="title">title</div>
+  <div class="assignee">assigned to:</div>
+  <div class="info">content</div>
+</div>
+</div>
+`;
 
-const highlight = () => {
-  // hljs.highlightAll();
-  document.querySelectorAll("code").forEach(function (element) {
-    debugger;
-    element.innerHTML = element.innerHTML
-      .replace(/&/g, "&amp;")
-      .replace(/</g, "&lt;")
-      .replace(/>/g, "&gt;")
-      .replace(/"/g, "&quot;")
-      .replace(/'/g, "&#039;");
-  });
-  hljs.highlightAll();
-};
+// const highlight = (element) => {
+//   // hljs.highlightAll();
+//   element.innerHTML = element.innerHTML
+//     .replace(/&/g, "&amp;")
+//     .replace(/</g, "&lt;")
+//     .replace(/>/g, "&gt;")
+//     .replace(/"/g, "&quot;")
+//     .replace(/'/g, "&#039;");
 
-export const render = (code) => {
-  setTimeout(highlight, 100);
-  return code;
-};
+//   hljs.highlightElement(element);
+// };
+
+export const renderCode = (code) => hljs.highlight(code, {language: 'xml'}).value
 
 const testCode = `
-<code class="html"><meta author="Joe Example"></code>
+<meta author="Joe Example">
 `;
 
 const testCode2 = `
@@ -44,6 +31,5 @@ const testCode2 = `
 `;
 
 export const loading = () => ({
-  code: testCode,
-  code2: testCode2,
+  code: codeBlockA1,
 });
