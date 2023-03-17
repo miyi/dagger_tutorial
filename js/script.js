@@ -1,28 +1,49 @@
 const cardXML = `
 <div class="card" +loading="{
-  title: 'Create Card',
-  assignee: 'me',
-  info: 'Play around with the +loading directive in dagger.js.'
+     title: '||title||', 
+  assignee: '||assignee||',
+   details: '||details||'
 }">
   <div class="title">\${title}</div>
-  <div class="assignee">assigned to: \$\{assignee}</div>
-  <div class="info">\$\{info}</div>
+  <div class="assignee">assigned to: \${assignee}</div>
+  <div class="details">\${details}</div>
 </div>
 `;
 
-function isDagger(str) {
-  return (
-    str.startsWith("+") ||
-    str.startsWith("$") ||
-    str.startsWith("dg") ||
-    str.startsWith("@")
-  );
+export function inputAutoExpand(input) {
+  input.style.width = `${input.scrollWidth + 4}px`;
 }
 
-function removeAttributes(htmlString) {
+function isDagger(str) {
+  return str.startsWith("+") || str.startsWith("$") || str.startsWith("dg");
+}
+
+function isLoadingDirective(str) {
+  return str.startsWith("+loading");
+}
+
+function replaceWithInput(str) {
+  const regex = /\|\|(.+?)\|\|/g;
+  const oldInput =
+    '<input class="code-input" type="text" oninput="inputAutoExpand(this)" maxlength="40" $value#input="$1">';
+  return str.replace(regex, oldInput);
+}
+
+function replaceWithScopeVariable(str) {
+  const regex = /\\(.+?)\\/g;
+  return str.replace(regex, "${$1}");
+}
+
+function addRawDirective(str) {
+  const regex = /\${.+?}/g;
+  const rawSpan = '<span @raw>$&<span>'
+  return str.replace(regex, rawSpan);
+}
+
+function removeAttributes(raw) {
   // create a temporary element to hold the html
   var tempEl = document.createElement("div");
-  tempEl.innerHTML = htmlString;
+  tempEl.innerHTML = raw;
 
   // loop through all elements and remove their attributes
   var elements = tempEl.getElementsByTagName("*");
@@ -40,26 +61,59 @@ function removeAttributes(htmlString) {
   return tempEl.innerHTML;
 }
 
-// const highlight = (element) => {
-//   // hljs.highlightAll();
-//   element.innerHTML = element.innerHTML
-//     .replace(/&/g, "&amp;")
-//     .replace(/</g, "&lt;")
-//     .replace(/>/g, "&gt;")
-//     .replace(/"/g, "&quot;")
-//     .replace(/'/g, "&#039;");
+const removeLoadingDirective = (raw) => {
+  var tempEl = document.createElement("div");
+  tempEl.innerHTML = raw;
 
-//   hljs.highlightElement(element);
-// };
+  var elements = tempEl.getElementsByTagName("*");
+  for (var i = 0; i < elements.length; i++) {
+    var attrs = elements[i].attributes;
+    for (var j = attrs.length - 1; j >= 0; j--) {
+      isLoadingDirective(attrs[j].name)
+        ? elements[i].removeAttribute(attrs[j].name)
+        : true;
+    }
+  }
 
-export const renderCode = (code) => {
-  return `<div @raw>${hljs.highlight(code, { language: "xml" }).value}</div>`;
+  return tempEl.innerHTML;
 };
 
-export const loading = () => ({
-  rawHTML: cardXML,
-  showcaseHTML: removeAttributes(cardXML),
-  title: "create card",
-  assignee: "John Doe",
-  info: "create a card with dagger",
-});
+const produceDemoCode = (raw) => {
+  const codeWithoutAttr = removeAttributes(raw);
+  let hlCode = hljs.highlight(codeWithoutAttr, { language: "xml" }).value;
+  const codeWithInputs = replaceWithInput(hlCode);
+  // const codeWithRawScopeVariables = ()
+  const codeWithRawSpan = addRawDirective(codeWithInputs)
+  return codeWithRawSpan;
+};
+
+// const produceRender = (raw) => {
+//   const codeWithoutLoading =
+// }
+
+export const loading2 = () => {
+  const title = "create card";
+  const assignee = "me";
+  const details = "experiment with the +loading directive";
+  return {
+    rawDemo: cardXML,
+    demoCode: produceDemoCode(cardXML),
+    demoRender: removeLoadingDirective(cardXML),
+    title,
+    assignee,
+    details,
+  };
+};
+
+export const loading = () => {
+  const title = "create card";
+  const assignee = "me";
+  const details = "experiment with the +loading directive";
+  return {
+    rawHTML: cardXML,
+    showcaseHTML: produceDemoCode(cardXML),
+    title: title,
+    assignee: assignee,
+    details: details,
+  };
+};

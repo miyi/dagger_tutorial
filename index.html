@@ -33,9 +33,9 @@
     <title>tutorial demo page</title>
   </head>
   <body dg-cloak>
-    <div class="grid-container" +loading="loading()">
+    <div class="grid-container" +loading="loading2()">
       <div class="code-box">
-        <pre><code class="html" $html="renderCode(showcaseHTML)"></code></pre>
+        <pre><code class="html" $html="demoCode"></code></pre>
       </div>
       <div class="render-box">
         <div class="row">
@@ -45,7 +45,7 @@
             <span class="dot" style="background: #5ac05a"></span>
           </div>
         </div>
-        <div class="content" $html="rawHTML"></div>
+        <div class="content" $html="demoRender"></div>
       </div>
     </div>
   </body>
