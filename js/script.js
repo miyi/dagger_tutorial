@@ -1,15 +1,3 @@
-const cardXML = `
-<div class="card" +loading="{
-     title: '||title||', 
-  assignee: '||assignee||',
-   details: '||details||'
-}">
-  <div class="title">\${title}</div>
-  <div class="assignee">assigned to: \${assignee}</div>
-  <div class="details">\${details}</div>
-</div>
-`;
-
 export function inputAutoExpand(input) {
   input.style.width = `${input.scrollWidth + 4}px`;
 }
@@ -36,7 +24,7 @@ function replaceWithScopeVariable(str) {
 
 function addRawDirective(str) {
   const regex = /\${.+?}/g;
-  const rawSpan = '<span @raw>$&<span>'
+  const rawSpan = "<span @raw>$&<span>";
   return str.replace(regex, rawSpan);
 }
 
@@ -83,7 +71,7 @@ const produceDemoCode = (raw) => {
   let hlCode = hljs.highlight(codeWithoutAttr, { language: "xml" }).value;
   const codeWithInputs = replaceWithInput(hlCode);
   // const codeWithRawScopeVariables = ()
-  const codeWithRawSpan = addRawDirective(codeWithInputs)
+  const codeWithRawSpan = addRawDirective(codeWithInputs);
   return codeWithRawSpan;
 };
 
@@ -91,7 +79,18 @@ const produceDemoCode = (raw) => {
 //   const codeWithoutLoading =
 // }
 
-export const loading2 = () => {
+export const loading = () => {
+  const cardXML = `
+<div class="card" +loading="{
+     title: '||title||', 
+  assignee: '||assignee||',
+   details: '||details||'
+}">
+  <div class="title">\${title}</div>
+  <div class="assignee">assigned to: \${assignee}</div>
+  <div class="details">\${details}</div>
+</div>
+`;
   const title = "create card";
   const assignee = "me";
   const details = "experiment with the +loading directive";
@@ -102,18 +101,5 @@ export const loading2 = () => {
     title,
     assignee,
     details,
-  };
-};
-
-export const loading = () => {
-  const title = "create card";
-  const assignee = "me";
-  const details = "experiment with the +loading directive";
-  return {
-    rawHTML: cardXML,
-    showcaseHTML: produceDemoCode(cardXML),
-    title: title,
-    assignee: assignee,
-    details: details,
   };
 };
