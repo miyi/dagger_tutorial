@@ -10,7 +10,7 @@
     </style>
     <!-- cloak style -->
     <link rel="stylesheet" href="styles.css" />
-    <link rel="stylesheet" href="highlightjs/night-owl.min.css" />
+    <link rel="stylesheet" href="highlightjs/github-dark.min.css" />
     <link
       href="http://fonts.googleapis.com/css?family=Roboto"
       rel="stylesheet"
@@ -33,9 +33,9 @@
     <title>tutorial demo page</title>
   </head>
   <body dg-cloak>
-    <div class="grid-container">
-      <div class="code-box" +loading="loading()">
-        <pre><code class="html" $html="renderCode(code)"></code></pre>
+    <div class="grid-container" +loading="loading()">
+      <div class="code-box">
+        <pre><code class="html" $html="renderCode(showcaseHTML)"></code></pre>
       </div>
       <div class="render-box">
         <div class="row">
@@ -45,13 +45,7 @@
             <span class="dot" style="background: #5ac05a"></span>
           </div>
         </div>
-        <div class="content">
-          <div class="card">
-            <div class="title">title</div>
-            <div class="assignee">assigned to:</div>
-            <div class="info">content</div>
-          </div>
-        </div>
+        <div class="content" $html="rawHTML"></div>
       </div>
     </div>
   </body>

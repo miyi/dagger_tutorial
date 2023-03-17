@@ -15,12 +15,15 @@ body {
 }
 
 .code-box {
-  border-radius: 8px;
+  border-radius: 24px;
   padding: 16px 32px;
   width: 80%;
   height: 360px;
   background-color: #011727;
   color: #d5deeb;
+}
+.code-box * {
+  flex-wrap: wrap;
 }
 
 .render-box {
@@ -75,14 +78,14 @@ body {
 }
 .card .title {
   align-self: start;
-  font-size: 32px;
+  font-size: 28px;
 }
 .card .info {
   width: 100%;
 }
 .card .assignee {
   justify-self: end;
-  font-size: 16px;
+  font-size: 14px;
   height: auto;
   text-align: end;
 }

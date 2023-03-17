@@ -1,0 +1,30 @@
+.card {
+  height: auto;
+  width: 55%;
+  background-color: #f1f1f1;
+  border: 3px white;
+  box-shadow: 10px 5px 5px #928484;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  border-radius: 16px;
+  color: #0078f1;
+}
+.card div {
+  margin-bottom: 8px;
+}
+.card .title {
+  align-self: start;
+  font-size: 32px;
+}
+.card .info {
+  width: 100%;
+}
+.card .assignee {
+  justify-self: end;
+  font-size: 16px;
+  height: auto;
+  text-align: end;
+}
+
+/*# sourceMappingURL=card.css.map */
