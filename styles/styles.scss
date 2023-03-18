@@ -87,19 +87,18 @@ body {
   border-radius: 16px;
   color: #0078f1;
   word-break: break-word;
-  div {
-    margin-bottom: 8px;
-  }
   .title {
     align-self: start;
     font-size: 28px;
   }
-  .info {
+  .details {
+    margin-top: 8px;
     width: 100%;
   }
   .assignee {
+    margin: 2px;
     justify-self: end;
-    font-size: 14px;
+    font-size: 0.75rem;
     height: auto;
     text-align: end;
   }

@@ -1,5 +1,6 @@
 export function inputAutoExpand(input) {
   input.style.width = `${input.scrollWidth + 4}px`;
+  console.log(input.scrollWidth);
 }
 
 function isDagger(str) {
@@ -15,11 +16,6 @@ function replaceWithInput(str) {
   const oldInput =
     '<input class="code-input" type="text" oninput="inputAutoExpand(this)" maxlength="40" $value#input="$1">';
   return str.replace(regex, oldInput);
-}
-
-function replaceWithScopeVariable(str) {
-  const regex = /\\(.+?)\\/g;
-  return str.replace(regex, "${$1}");
 }
 
 function addRawDirective(str) {
@@ -84,16 +80,19 @@ export const loading = () => {
 <div class="card" +loading="{
      title: '||title||', 
   assignee: '||assignee||',
-   details: '||details||'
+   details: '||details||',
+     phone: '||phone||'
 }">
   <div class="title">\${title}</div>
   <div class="assignee">assigned to: \${assignee}</div>
+  <div class="assignee">phone: \${phone}</div>
   <div class="details">\${details}</div>
 </div>
 `;
   const title = "create card";
   const assignee = "me";
   const details = "experiment with the +loading directive";
+  const phone = "+(123)456-7890";
   return {
     rawDemo: cardXML,
     demoCode: produceDemoCode(cardXML),
@@ -101,5 +100,6 @@ export const loading = () => {
     title,
     assignee,
     details,
+    phone,
   };
 };

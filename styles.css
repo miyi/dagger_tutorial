@@ -88,19 +88,18 @@ body {
   color: #0078f1;
   word-break: break-word;
 }
-.card div {
-  margin-bottom: 8px;
-}
 .card .title {
   align-self: start;
   font-size: 28px;
 }
-.card .info {
+.card .details {
+  margin-top: 8px;
   width: 100%;
 }
 .card .assignee {
+  margin: 2px;
   justify-self: end;
-  font-size: 14px;
+  font-size: 0.75rem;
   height: auto;
   text-align: end;
 }
