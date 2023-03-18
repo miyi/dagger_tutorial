@@ -33,21 +33,64 @@
     <title>tutorial demo page</title>
   </head>
   <body dg-cloak>
-    <div class="grid-container" +loading="loading()">
-      <div class="code-box">
-        <pre><code class="html" $html="demoCode"></code></pre>
-      </div>
-      <div class="render-box">
-        <div class="row">
-          <div class="column">
-            <span class="dot" style="background: #ed594a"></span>
-            <span class="dot" style="background: #fdd800"></span>
-            <span class="dot" style="background: #5ac05a"></span>
-          </div>
+    <div class="section">
+      <div class="chapter-title">Welcome to dagger.js</div>
+      <span
+        >dagger.js is a directive based web framework that is natively supported
+        by the browser. This means that there are no apis and no compiling,
+        which makes for a clean and intuitive way to design the modern web.
+        Every dagger functionality is accessible through the dagger defined
+        attributes and configuration. Let's see exactly how it work and how to
+        use it with a few simple tutorials.
+      </span>
+      <div class="section-title">State management</div>
+      <span
+        >The defining feature of the modern web is the interactive features on a
+        single single webpage. Elements may present changing information or be
+        manipulated by user interaction with a seperate element. Behind it all
+        is a state management system that keeps track of all the moving pieces.
+        Dagger manages it's state values through lifecycle directives. Let's see
+        what that looks like in action through creating a task card.</span
+      >
+    </div>
+    <div class="grid-container" +loading="loadingScene1()">
+      <div class="code-container">
+        <span class="sandbox-label">html</span>
+        <div class="code-box">
+          <pre><code class="html" $html="demoCode"></code></pre>
         </div>
-        <div class="content" $html="demoRender"></div>
+      </div>
+      <div class="render-container">
+        <span class="sandbox-label">browser</span>
+        <div class="render-box">
+          <div class="row">
+            <div class="column">
+              <span class="dot" style="background: #ed594a"></span>
+              <span class="dot" style="background: #fdd800"></span>
+              <span class="dot" style="background: #5ac05a"></span>
+            </div>
+          </div>
+          <div class="content" $html="demoRender"></div>
+        </div>
       </div>
     </div>
+    <div class="section">
+      <span @raw>
+        The +loading directive created 3 scope variables: title, assignee, and
+        details. The element tags act as natural scopes for the variables, which
+        can be readily access and manipulated anywere within the scope with the
+        ${} markup. the onloading directive accepts any object, or functions
+        that resolve into an object. play around with scope variable values to
+        see how it affects the output.
+      </span>
+      <div class="section-title">Manipulating the scope variables</div>
+      <span>
+        We can manipulate the scope variable from the browser to add more
+        interativity to the task card. First let's create a scope variable
+        called is complete, and a button that switches the completed status of
+        the card. To add some flare, let's show an orange border for incomplete
+        tasks and a green border for completed tasks.
+      </span>
+    </div>
   </body>
-  <script src="highlightjs/custom.js"></script>
 </html>

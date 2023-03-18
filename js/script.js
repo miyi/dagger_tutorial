@@ -66,33 +66,25 @@ const produceDemoCode = (raw) => {
   const codeWithoutAttr = removeAttributes(raw);
   let hlCode = hljs.highlight(codeWithoutAttr, { language: "xml" }).value;
   const codeWithInputs = replaceWithInput(hlCode);
-  // const codeWithRawScopeVariables = ()
   const codeWithRawSpan = addRawDirective(codeWithInputs);
   return codeWithRawSpan;
 };
 
-// const produceRender = (raw) => {
-//   const codeWithoutLoading =
-// }
-
-export const loading = () => {
+export const loadingScene1 = () => {
   const cardXML = `
 <div class="card" +loading="{
      title: '||title||', 
   assignee: '||assignee||',
    details: '||details||',
-     phone: '||phone||'
 }">
   <div class="title">\${title}</div>
   <div class="assignee">assigned to: \${assignee}</div>
-  <div class="assignee">phone: \${phone}</div>
   <div class="details">\${details}</div>
 </div>
 `;
   const title = "create card";
   const assignee = "me";
   const details = "experiment with the +loading directive";
-  const phone = "+(123)456-7890";
   return {
     rawDemo: cardXML,
     demoCode: produceDemoCode(cardXML),
@@ -100,6 +92,24 @@ export const loading = () => {
     title,
     assignee,
     details,
-    phone,
   };
+};
+
+export const loadingScene2 = () => {
+  const cardXML = `
+<div class="card" +loading="{
+    title: '||title||', 
+ assignee: '||assignee||',
+  details: '||details||',
+  isComplete: '||true||'
+}">
+ <div class="title">\${title}</div>
+ <div class="assignee">assigned to: \${assignee}</div>
+ <div class="details">\${details}</div>
+ <button class="button">\${isComplete? "complete":"incomplete"}</button>
+</div>
+  `;
+  const title = "create card";
+  const assignee = "me";
+  const details = "experiment with the +loading directive";
 };

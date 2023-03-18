@@ -1,6 +1,6 @@
 ##Welcome to dagger.js
 
-dagger.js is a directive based web framework that is natively supported by the browser. This means that there are no need for apis and compiling which makes for a clean and intuitive way to design the modern web. You can access every dagger functionality through the dagger defined attributes. Let's see how it works and how to use it with a few tutorials.
+dagger.js is a directive based web framework that is natively supported by the browser. This means that there are no apis and no compiling, which makes for a clean and intuitive way to design the modern web. You can access every dagger functionality through the dagger defined attributes. Let's see exactly how it work and how to use it with a few simple tutorials.
 
 ###State management
 
