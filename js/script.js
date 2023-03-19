@@ -1,8 +1,3 @@
-export function inputAutoExpand(input) {
-  input.style.width = `${input.scrollWidth + 4}px`;
-  console.log(input.scrollWidth);
-}
-
 function isDagger(str) {
   return str.startsWith("+") || str.startsWith("$") || str.startsWith("dg");
 }
@@ -14,7 +9,7 @@ function isLoadingDirective(str) {
 function replaceWithInput(str) {
   const regex = /\|\|(.+?)\|\|/g;
   const oldInput =
-    '<input class="code-input" type="text" oninput="inputAutoExpand(this)" maxlength="40" $value#input="$1">';
+    '<input class="code-input" type="text" maxlength="40" $value#input="$1">';
   return str.replace(regex, oldInput);
 }
 

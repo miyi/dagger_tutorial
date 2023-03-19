@@ -1,0 +1,39 @@
+.render-container {
+  width: 100%;
+}
+.render-container .render-box {
+  border-radius: 24px;
+  background-color: antiquewhite;
+  width: 100%;
+  height: 360px;
+  border: 3px solid #f1f1f1;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+}
+.render-container .render-box .row {
+  align-items: center;
+  height: 24px;
+  background: #f1f1f1;
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
+}
+.render-container .render-box .dot {
+  margin: 4 0 0 6;
+  height: 12px;
+  width: 12px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+}
+.render-container .render-box .column {
+  float: left;
+}
+.render-container .render-box .content {
+  height: calc(100% - 24px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+/*# sourceMappingURL=render-container.css.map */
