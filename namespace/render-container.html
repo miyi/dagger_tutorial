@@ -1,5 +1,8 @@
 <!-- render-container needs to function with the demo scope variable, which is html code in string format -->
-<div class="render-container" +loaded="{demoRender: removeDirective(demo)}">
+<div
+  class="render-container"
+  +loaded="{demoRender: removeLoadingDirective(demo)}"
+>
   <span class="sandbox-label">browser</span>
   <div class="render-box">
     <div class="row">

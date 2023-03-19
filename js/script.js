@@ -115,7 +115,7 @@ export const loadingScene2 = () => {
 };
 
 export const rendertestloading = () => {
-  hello = `<div>hello world</div>`;
+  const hello = `<div>hello world</div>`;
   return {
     demo: hello,
   };

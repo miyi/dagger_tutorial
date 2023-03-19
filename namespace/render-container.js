@@ -1,4 +1,4 @@
-const removeLoadingDirective = (raw) => {
+export const removeLoadingDirective = (raw) => {
   var tempEl = document.createElement("div");
   tempEl.innerHTML = raw;
 
