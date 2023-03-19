@@ -113,3 +113,10 @@ export const loadingScene2 = () => {
   const assignee = "me";
   const details = "experiment with the +loading directive";
 };
+
+export const rendertestloading = () => {
+  hello = `<div>hello world</div>`;
+  return {
+    demo: hello,
+  };
+};
