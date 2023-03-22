@@ -1,0 +1,29 @@
+.code-container {
+  width: 100%;
+}
+.code-container .code-box {
+  border-radius: 24px;
+  padding: 16px 32px;
+  width: 100%;
+  height: auto;
+  background-color: #011727;
+  color: #d5deeb;
+}
+.code-container .code-box * {
+  flex-wrap: wrap;
+}
+
+.code-input {
+  border: 0px;
+  margin: 2px;
+  padding: 0.25rem;
+  background: rgb(221, 221, 221);
+  color: rgb(40, 40, 40);
+  border-radius: 0.25rem;
+  transition: all 150ms ease 0s;
+  font-size: 0.75em;
+  width: auto;
+  min-width: 8rem;
+}
+
+/*# sourceMappingURL=code_container.css.map */

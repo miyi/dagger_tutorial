@@ -1,7 +1,11 @@
-export const removeLoadingDirective = (raw) => {
+function isLoadingDirective(str) {
+  return str.startsWith("+loading");
+}
+
+export const produceDemoRender = (raw) => {
   var tempEl = document.createElement("div");
   tempEl.innerHTML = raw;
-
+// removes +loading scope variables
   var elements = tempEl.getElementsByTagName("*");
   for (var i = 0; i < elements.length; i++) {
     var attrs = elements[i].attributes;

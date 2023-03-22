@@ -1,0 +1,30 @@
+<html>
+  <script type="dagger/configs">
+    {
+      "template": {
+        "uri": "#template",
+        "style": "browser_style"
+      },
+      "browser_style": "./render-container.css",
+      "script": "./render-container.js"
+    }
+  </script>
+  <template id="template">
+    <div
+      class="render-container"
+      +loading="{demoRender: produceDemoRender(demo)}"
+    >
+      <span class="sandbox-label">browser</span>
+      <div class="render-box">
+        <div class="row">
+          <div class="column">
+            <span class="dot" style="background: #ed594a"></span>
+            <span class="dot" style="background: #fdd800"></span>
+            <span class="dot" style="background: #5ac05a"></span>
+          </div>
+        </div>
+        <div class="content" $html="demoRender"></div>
+      </div>
+    </div>
+  </template>
+</html>
