@@ -14,15 +14,22 @@
   }
 }
 
-.code-input {
+.demo-input {
   border: 0px;
   margin: 2px;
-  padding: 0.25rem;
+  padding: 0.15rem;
   background: rgb(221, 221, 221);
   color: rgb(40, 40, 40);
-  border-radius: 0.25rem;
+  border-radius: 0.2rem;
   transition: all 150ms ease 0s;
-  font-size: 0.75em;
-  width: auto;
+  font-size: 0.70rem;
+  height: 1.25rem;
+}
+
+.scope {
   min-width: 8rem;
+}
+
+.eval {
+  min-width: 12rem;
 }

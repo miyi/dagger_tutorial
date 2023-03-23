@@ -5,7 +5,7 @@ function isLoadingDirective(str) {
 export const produceDemoRender = (raw) => {
   var tempEl = document.createElement("div");
   tempEl.innerHTML = raw;
-// removes +loading scope variables
+  // removes +loading scope variables
   var elements = tempEl.getElementsByTagName("*");
   for (var i = 0; i < elements.length; i++) {
     var attrs = elements[i].attributes;
@@ -15,6 +15,6 @@ export const produceDemoRender = (raw) => {
         : true;
     }
   }
-
+  // console.log(tempEl.innerHTML);
   return tempEl.innerHTML;
 };

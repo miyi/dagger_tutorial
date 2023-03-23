@@ -83,7 +83,7 @@
       </div>
     </div> -->
     <demo_container +loading="loadingScene1Demo()">
-      <div class="grid-container">
+      <div class="grid-container" height="360px">
         <demo_html></demo_html>
         <demo_browser></demo_browser>
       </div>
@@ -106,23 +106,23 @@
         tasks and a green border for completed tasks.
       </span>
     </div>
-    <!-- <demo_container +loading="loadingScene2Demo()">
-      <div class="grid-container">
-        <demo_browser></demo_browser>
+    <demo_container +loading="loadingScene2Demo()">
+      <div class="grid-container" height="380px">
+        <demo_html></demo_html>
         <demo_browser></demo_browser>
       </div>
-    </demo_container> -->
-    <div
+    </demo_container>
+    <!-- <div
       class="card"
-      $class="{complete, collapsed}"
+      $class="{complete, collapse}"
       +loading="{
       title: 'task card', 
    assignee: 'me',
     details: 'play around with the scope variables',
     complete: false,
-    collapsed: false,
+    collapse: false,
     complete_btn_click: 'complete=!complete',
-    collapse_btn_click: 'collapsed = !collapsed'
+    collapse_btn_click: 'collapse=!collapse'
 }"
     >
       <div class="title" +click="eval(collapse_btn_click)">
@@ -141,13 +141,10 @@
       <div class="content">
         <div class="assignee">assigned to: ${assignee}</div>
         <div class="details">${details}</div>
-        <button
-          class="complete-button"
-          +click="eval(complete_btn_click)"
-        >
+        <button class="complete-button" +click="eval(complete_btn_click)">
           ${complete?'completed':'not complete'}
         </button>
       </div>
-    </div>
+    </div> -->
   </body>
 </html>
