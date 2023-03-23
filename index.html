@@ -9,7 +9,7 @@
       }
     </style>
     <!-- cloak style -->
-    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="./styles/styles.css" />
     <link rel="stylesheet" href="highlightjs/github-dark.min.css" />
     <link
       href="http://fonts.googleapis.com/css?family=Roboto"
@@ -30,7 +30,7 @@
           "uri": "./namespace/demo_module_namespace.html",
           "style": "./styles/card.css"
         },
-        "style": { "uri": "./styles/card.css", "scoped": true},
+        "style": { "uri": "./styles/card.css", "scoped": false},
         "_": "./js/loading.js"
       }
     </script>
@@ -46,16 +46,19 @@
         which makes for a clean and intuitive way to design the modern web.
         Every dagger functionality is accessible through the dagger defined
         attributes and configuration. Let's see exactly how it work and how to
-        use it with a few simple tutorials.
+        use it with a few simple tutorials. Our tutorials will first introduce
+        how a few specific directives work, then work our way to the bigger
+        picture where we create reusable components and put it all together into
+        a functional web.
       </span>
       <div class="section-title">State management</div>
-      <span
-        >The defining feature of the modern web is the interactive features on a
-        single single webpage. Elements may present changing information or be
-        manipulated by user interaction with a seperate element. Behind it all
-        is a state management system that keeps track of all the moving pieces.
-        Dagger manages it's state values through lifecycle directives. Let's see
-        what that looks like in action through creating a task card.</span
+      <span>
+        Having interactive features on a single webpage is the defining
+        characteristics of the modern web. Html elements must react to
+        constantly changing data or complex user interactions. Behind it all is
+        a state management system that keeps track of all the moving pieces.
+        Dagger makes it easy through lifecycle directives. Let's see what that
+        looks like in action by creating a task card.</span
       >
     </div>
     <!-- <div class="grid-container" +loading="loadingScene1()">
@@ -79,6 +82,12 @@
         </div>
       </div>
     </div> -->
+    <demo_container +loading="loadingScene1Demo()">
+      <div class="grid-container">
+        <demo_html></demo_html>
+        <demo_browser></demo_browser>
+      </div>
+    </demo_container>
     <div class="section">
       <span @raw>
         The +loading directive created 3 scope variables: title, assignee, and
@@ -97,10 +106,48 @@
         tasks and a green border for completed tasks.
       </span>
     </div>
-
-    <demo_container class="grid-container" +loading="loadingTestDemo()">
-      <demo_html></demo_html>
-      <demo_browser></demo_browser>
-    </demo_container>
+    <!-- <demo_container +loading="loadingScene2Demo()">
+      <div class="grid-container">
+        <demo_browser></demo_browser>
+        <demo_browser></demo_browser>
+      </div>
+    </demo_container> -->
+    <div
+      class="card"
+      $class="{complete, collapsed}"
+      +loading="{
+      title: 'task card', 
+   assignee: 'me',
+    details: 'play around with the scope variables',
+    complete: false,
+    collapsed: false,
+    complete_btn_click: 'complete=!complete',
+    collapse_btn_click: 'collapsed = !collapsed'
+}"
+    >
+      <div class="title" +click="eval(collapse_btn_click)">
+        <span>${title}</span>
+        <svg
+          class="collapse-btn"
+          viewBox="0 0 24 24"
+          fill="#0078f1"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M5.16108 14.9083C4.45387 15.7165 5.02785 16.9814 6.1018 16.9814H17.898C18.972 16.9814 19.5459 15.7165 18.8388 14.9083L13.3169 8.59762C12.6197 7.80079 11.3801 7.80079 10.6829 8.59762L5.16108 14.9083ZM6.65274 15.4814L11.8118 9.58537C11.9114 9.47154 12.0885 9.47154 12.1881 9.58537L17.3471 15.4814H6.65274Z"
+          />
+        </svg>
+      </div>
+      <div class="content">
+        <div class="assignee">assigned to: ${assignee}</div>
+        <div class="details">${details}</div>
+        <button
+          class="complete-button"
+          +click="eval(complete_btn_click)"
+        >
+          ${complete?'completed':'not complete'}
+        </button>
+      </div>
+    </div>
   </body>
 </html>

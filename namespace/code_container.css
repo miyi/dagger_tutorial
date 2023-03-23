@@ -1,11 +1,12 @@
 .code-container {
   width: 100%;
+  height: 100%;
 }
 .code-container .code-box {
   border-radius: 24px;
   padding: 16px 32px;
   width: 100%;
-  height: auto;
+  height: 100%;
   background-color: #011727;
   color: #d5deeb;
 }

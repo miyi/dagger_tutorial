@@ -4,8 +4,8 @@ function isDagger(str) {
 
 function replaceWithInput(str) {
   const regex = /\|\|(.+?)\|\|/g;
-  const oldInput =
-    '<input class="code-input" type="text" maxlength="40" $value#input="$1">';
+  const scopeVariableInput =
+    '<input class="code-input" type="text" maxlength="255" $value#input="$1">';
   return str.replace(regex, oldInput);
 }
 

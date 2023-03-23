@@ -1,0 +1,48 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <style>
+      [dg-cloak] {
+        display: none !important;
+      }
+    </style>
+    <!-- cloak style -->
+    <script
+      type="module"
+      crossorigin="anonymous"
+      src="https://cdn.jsdelivr.net/npm/@peakman/dagger.js@0.9.17/dagger.release.js"
+      defer
+    ></script>
+    <!-- dagger.js script -->
+    <script type="dagger/configs"></script>
+    <!-- dagger configs -->
+    <title>dagger demo page</title>
+  </head>
+
+  <body dg-cloak>
+    <div class="container">
+      <div class="faq-drawer">
+        <input class="faq-drawer__trigger" id="faq-drawer" type="checkbox" /><label class="faq-drawer__title" for="faq-drawer">Drawer Title</label>
+        <div class="faq-drawer__content-wrapper">
+          <div class="faq-drawer__content">
+            <p>
+              Sick.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="faq-drawer">
+        <input class="faq-drawer__trigger" id="faq-drawer-2" type="checkbox" /><label class="faq-drawer__title" for="faq-drawer-2">Drawer Title #2</label>
+        <div class="faq-drawer__content-wrapper">
+          <div class="faq-drawer__content">
+            <p>
+              👌🏻
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

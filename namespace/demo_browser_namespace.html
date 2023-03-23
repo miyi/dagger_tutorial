@@ -5,13 +5,13 @@
         "uri": "#template",
         "style": "browser_style"
       },
-      "browser_style": "./render-container.css",
-      "script": "./render-container.js"
+      "browser_style": "./browser_container.css",
+      "script": "./browser_container.js"
     }
   </script>
   <template id="template">
     <div
-      class="render-container"
+      class="browser-container"
       +loading="{demoRender: produceDemoRender(demo)}"
     >
       <span class="sandbox-label">browser</span>
