@@ -74,11 +74,11 @@
   transition: 0.6s;
 }
 
-.collapsed .title .collapse-btn {
+.collapse .title .collapse-btn {
   transform: rotate(180deg);
   transition: 0.6s;
 }
-.collapsed .content {
+.collapse .content {
   max-height: 0;
   overflow: hidden;
   transition: 0.6s;

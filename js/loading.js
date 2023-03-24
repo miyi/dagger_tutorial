@@ -58,13 +58,13 @@ export const loadingScene2Demo = () => {
       \${complete ? "completed" : "not complete"}
     </button>
   </div>
+</div>
   `;
   const title = "create card";
   const assignee = "me";
   const details =
     "Try coding your own +click directives and $class directives!";
-  const complete_btn_click =
-    "console.log(complete_btn_click),complete=!complete";
+  const complete_btn_click = "complete=!complete";
   const collapse_btn_click = "collapse=!collapse";
   const dollar_class = "{complete, collapse}";
   const complete = false;

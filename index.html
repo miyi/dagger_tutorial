@@ -27,9 +27,9 @@
     <script type="dagger/configs">
       {
         "demo_container": {
-          "uri": "./namespace/demo_module_namespace.html",
-          "style": "./styles/card.css"
+          "uri": "./demo_module/demo_module_namespace.html"
         },
+
         "style": { "uri": "./styles/card.css", "scoped": false},
         "_": "./js/loading.js"
       }
@@ -112,18 +112,18 @@
         <demo_browser></demo_browser>
       </div>
     </demo_container>
-    <!-- <div
+    <div
       class="card"
       $class="{complete, collapse}"
       +loading="{
-      title: 'task card', 
-   assignee: 'me',
-    details: 'play around with the scope variables',
-    complete: false,
-    collapse: false,
-    complete_btn_click: 'complete=!complete',
-    collapse_btn_click: 'collapse=!collapse'
-}"
+        title: 'task card', 
+        assignee: 'me',
+        details: 'play around with the scope variables',
+        complete: false,
+        collapse: false,
+        complete_btn_click: 'complete=!complete',
+        collapse_btn_click: 'collapse=!collapse'
+      }"
     >
       <div class="title" +click="eval(collapse_btn_click)">
         <span>${title}</span>
@@ -145,6 +145,6 @@
           ${complete?'completed':'not complete'}
         </button>
       </div>
-    </div> -->
+    </div>
   </body>
 </html>
