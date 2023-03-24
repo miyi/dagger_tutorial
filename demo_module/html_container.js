@@ -8,10 +8,13 @@ function replaceWithInput(str) {
   const scopeInput =
     '<input class="demo-input scope" type="text" maxlength="100" $value#input="$1">';
   // identifies eval(tag) patterns
-  const evalRegex = /eval\((.+?)\)/g;
+  const evalRegex = /eval\((.*?)\)/g;
   const evalInput =
     '<input class="demo-input eval" type="text" maxlength="160" $value#input="$1">';
-  const demoCode = str.replace(scopeRegex, scopeInput).replace(evalRegex, evalInput);
+  const demoCode = str
+    .replace(scopeRegex, scopeInput)
+    .replace(evalRegex, evalInput);
+  console.log(demoCode);
   return demoCode;
 }
 

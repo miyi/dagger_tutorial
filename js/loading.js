@@ -51,11 +51,8 @@ export const loadingScene2Demo = () => {
   <div class="content">
     <div class="assignee">assigned to: \${assignee}</div>
     <div class="details">\${details}</div>
-    <button
-      class="complete-button"
-      +click="eval(complete_btn_click)"
-    >
-      \${complete ? "completed" : "not complete"}
+    <button class="complete-button" +click="eval(complete_btn_click)">
+      \${complete?'completed':'not complete'}
     </button>
   </div>
 </div>
@@ -74,8 +71,9 @@ export const loadingScene2Demo = () => {
     title,
     assignee,
     details,
-    complete_btn_click,
     collapse_btn_click,
+    complete_btn_click,
+
     dollar_class,
     complete,
     collapse,
