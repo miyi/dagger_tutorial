@@ -12,7 +12,6 @@
   <template id="template">
     <div
       class="browser-container"
-      +loading="{demoRender: produceDemoRender(demo)}"
     >
       <span class="sandbox-label">browser</span>
       <div class="render-box">
@@ -23,7 +22,7 @@
             <span class="dot" style="background: #5ac05a"></span>
           </div>
         </div>
-        <div class="content" $html="demoRender"></div>
+        <div class="content" $html="html"></div>
       </div>
     </div>
   </template>

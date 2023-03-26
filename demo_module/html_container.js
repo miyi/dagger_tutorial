@@ -4,20 +4,19 @@ function isDagger(str) {
 
 function replaceWithInput(str) {
   // identifies ||tag|| patterns
-  const scopeRegex = /\|\|(.+?)\|\|/g;
-
-  const scopeInput =
+  const shortRegex = /%%(.+?)%%/g;
+  const shortInput =
     '<input class="demo-input scope" type="text" maxlength="100" $value#input="$1">';
   // identifies eval(tag) patterns
-  const evalRegex = /eval\((.*?)\)/g;
-  const evalInput =
+  const longRegex = /@@(.+?)@@/g;
+  const longInput =
     '<input class="demo-input eval" type="text" maxlength="160" $value#input="$1">';
   const doubleBracketsRegex = /\{\{(.+?)\}\}/g;
   const doubleBracketsReplacement = "<span @raw>${$1}</span>";
   const demoCode = str
-    .replace(scopeRegex, scopeInput)
-    .replace(evalRegex, evalInput)
-    .replace(doubleBracketsRegex, doubleBracketsReplacement)
+    .replace(shortRegex, shortInput)
+    .replace(longRegex, longInput)
+    .replace(doubleBracketsRegex, doubleBracketsReplacement);
   return demoCode;
 }
 

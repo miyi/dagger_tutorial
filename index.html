@@ -30,9 +30,9 @@
           "uri": "./demo_module/demo_module_namespace.html"
         },
         "demo_2": "./tutorial_components/card_complete_collapse.html",
-        "style": { "uri": "./styles/card.css", "scoped": false},
-
-        "_": "./js/loading.js"
+        "style": {"uri": "./styles/card.css", "scoped": false},
+        "scene1": {"uri": "./js/scene1.js", "anonymous": false},
+        "scene2": {"uri": "./js/scene2.js", "anonymous": false}
       }
     </script>
     <!-- dagger configs -->
@@ -62,31 +62,10 @@
         looks like in action by creating a task card.</span
       >
     </div>
-    <!-- <div class="grid-container" +loading="loadingScene1()">
-      <div class="code-container">
-        <span class="sandbox-label">html</span>
-        <div class="code-box">
-          <pre><code class="html" $html="demoCode"></code></pre>
-        </div>
-      </div>
-      <div class="render-container">
-        <span class="sandbox-label">browser</span>
-        <div class="render-box">
-          <div class="row">
-            <div class="column">
-              <span class="dot" style="background: #ed594a"></span>
-              <span class="dot" style="background: #fdd800"></span>
-              <span class="dot" style="background: #5ac05a"></span>
-            </div>
-          </div>
-          <div class="content" $html="demoRender"></div>
-        </div>
-      </div>
-    </div> -->
-    <demo_container +loading="loadingScene1Demo()">
+    <demo_container +loading="scene1.loadingData()">
       <div class="grid-container" height="360px">
-        <demo_html ></demo_html>
-        <demo_browser ></demo_browser>
+        <demo_html +loading="scene1.loadingHtml()"></demo_html>
+        <demo_browser $watch="html=scene1.loadingBrowser(title, assignee, details)" +loading="{html: ''}"></demo_browser>
       </div>
     </demo_container>
     <div class="section">
@@ -107,48 +86,19 @@
         tasks and a green border for completed tasks.
       </span>
     </div>
-    <demo_container +loading="loadingScene2Demo()">
+    <demo_container +loading="scene2.loadingData()">
+      ${$scope.dollar_class}
       <div class="grid-container" height="380px">
-        <demo_html +loading="loadingHtml()"></demo_html>
-        <!-- <demo_browser +loading="loadingBrowser()"></demo_browser> -->
+        <demo_html +loading="scene2.loadingHtml()"></demo_html>
+        <demo_browser $watch="html=scene2.loadingBrowser(
+          dollar_class,
+          complete,
+          complete_btn_click,
+          collapse_btn_click,
+          collapse)" +loading="{html: ''}"
+        ></demo_browser>
       </div>
     </demo_container>
-    <!-- <div class="grid-container">
-      <div
-        class="card"
-        $class="{complete, collapse}"
-        +loading="{
-        title: 'task card', 
-        assignee: 'me',
-        details: 'play around with the scope variables',
-        complete: false,
-        collapse: false,
-        complete_btn_click: 'complete=!complete',
-        collapse_btn_click: 'collapse=!collapse',
-      }"
-      >
-        <div class="title" +click="eval(collapse_btn_click)">
-          <span>${title}</span>
-          <svg
-            class="collapse-btn"
-            viewBox="0 0 24 24"
-            fill="#0078f1"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M5.16108 14.9083C4.45387 15.7165 5.02785 16.9814 6.1018 16.9814H17.898C18.972 16.9814 19.5459 15.7165 18.8388 14.9083L13.3169 8.59762C12.6197 7.80079 11.3801 7.80079 10.6829 8.59762L5.16108 14.9083ZM6.65274 15.4814L11.8118 9.58537C11.9114 9.47154 12.0885 9.47154 12.1881 9.58537L17.3471 15.4814H6.65274Z"
-            />
-          </svg>
-        </div>
-        <div class="content">
-          <div class="assignee">assigned to: ${assignee}</div>
-          <div class="details">${details}</div>
-          <button class="complete-button" +click="eval(complete_btn_click)">
-            ${complete?'completed':'not complete'}
-          </button>
-        </div>
-      </div>
-      <demo_2></demo_2> -->
     </div>
   </body>
 </html>
