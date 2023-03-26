@@ -85,8 +85,8 @@
     </div> -->
     <demo_container +loading="loadingScene1Demo()">
       <div class="grid-container" height="360px">
-        <demo_html></demo_html>
-        <demo_browser></demo_browser>
+        <demo_html ></demo_html>
+        <demo_browser ></demo_browser>
       </div>
     </demo_container>
     <div class="section">
@@ -109,11 +109,11 @@
     </div>
     <demo_container +loading="loadingScene2Demo()">
       <div class="grid-container" height="380px">
-        <demo_html></demo_html>
-        <demo_browser></demo_browser>
+        <demo_html +loading="loadingHtml()"></demo_html>
+        <!-- <demo_browser +loading="loadingBrowser()"></demo_browser> -->
       </div>
     </demo_container>
-    <div class="grid-container">
+    <!-- <div class="grid-container">
       <div
         class="card"
         $class="{complete, collapse}"
@@ -148,7 +148,7 @@
           </button>
         </div>
       </div>
-      <demo_2></demo_2>
+      <demo_2></demo_2> -->
     </div>
   </body>
 </html>

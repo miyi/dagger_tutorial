@@ -5,23 +5,20 @@ function isDagger(str) {
 function replaceWithInput(str) {
   // identifies ||tag|| patterns
   const scopeRegex = /\|\|(.+?)\|\|/g;
+
   const scopeInput =
     '<input class="demo-input scope" type="text" maxlength="100" $value#input="$1">';
   // identifies eval(tag) patterns
   const evalRegex = /eval\((.*?)\)/g;
   const evalInput =
     '<input class="demo-input eval" type="text" maxlength="160" $value#input="$1">';
+  const doubleBracketsRegex = /\{\{(.+?)\}\}/g;
+  const doubleBracketsReplacement = "<span @raw>${$1}</span>";
   const demoCode = str
     .replace(scopeRegex, scopeInput)
-    .replace(evalRegex, evalInput);
-  console.log(demoCode);
+    .replace(evalRegex, evalInput)
+    .replace(doubleBracketsRegex, doubleBracketsReplacement)
   return demoCode;
-}
-
-function addRawDirective(str) {
-  const regex = /\${.+?}/g;
-  const rawSpan = "<span @raw>$&<span>";
-  return str.replace(regex, rawSpan);
 }
 
 function removeAttributes(raw) {
@@ -48,6 +45,5 @@ export const produceDemoHtml = (raw) => {
   const codeWithoutAttr = removeAttributes(raw);
   let hlCode = hljs.highlight(codeWithoutAttr, { language: "xml" }).value;
   const codeWithInputs = replaceWithInput(hlCode);
-  const codeWithRawSpan = addRawDirective(codeWithInputs);
-  return codeWithRawSpan;
+  return codeWithInputs;
 };
