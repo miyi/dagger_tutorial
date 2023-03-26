@@ -34,13 +34,20 @@ $complete-green: rgb(29, 217, 29);
       margin-bottom: 8px;
       width: 100%;
     }
+    .details {
+      padding-left: 1rem;
+      padding-right: 1rem;
+      line-height: 1.5rem;
+      font-size: 0.9rem;
+    }
     .assignee {
       justify-self: end;
-      font-size: 0.85rem;
+      font-size: 0.75rem;
       height: auto;
       text-align: end;
     }
     .complete-button {
+      margin-top: 8px;
       border: 0;
       border: 1px solid $base-blue;
       background-color: $base-blue;

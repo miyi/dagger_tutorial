@@ -31,13 +31,20 @@
   margin-bottom: 8px;
   width: 100%;
 }
+.card .content .details {
+  padding-left: 1rem;
+  padding-right: 1rem;
+  line-height: 1.5rem;
+  font-size: 0.9rem;
+}
 .card .content .assignee {
   justify-self: end;
-  font-size: 0.85rem;
+  font-size: 0.75rem;
   height: auto;
   text-align: end;
 }
 .card .content .complete-button {
+  margin-top: 8px;
   border: 0;
   border: 1px solid #0078f1;
   background-color: #0078f1;

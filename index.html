@@ -29,8 +29,9 @@
         "demo_container": {
           "uri": "./demo_module/demo_module_namespace.html"
         },
-
+        "demo_2": "./tutorial_components/card_complete_collapse.html",
         "style": { "uri": "./styles/card.css", "scoped": false},
+
         "_": "./js/loading.js"
       }
     </script>
@@ -112,39 +113,42 @@
         <demo_browser></demo_browser>
       </div>
     </demo_container>
-    <div
-      class="card"
-      $class="{complete, collapse}"
-      +loading="{
+    <div class="grid-container">
+      <div
+        class="card"
+        $class="{complete, collapse}"
+        +loading="{
         title: 'task card', 
         assignee: 'me',
         details: 'play around with the scope variables',
         complete: false,
         collapse: false,
         complete_btn_click: 'complete=!complete',
-        collapse_btn_click: 'collapse=!collapse'
+        collapse_btn_click: 'collapse=!collapse',
       }"
-    >
-      <div class="title" +click="eval(collapse_btn_click)">
-        <span>${title}</span>
-        <svg
-          class="collapse-btn"
-          viewBox="0 0 24 24"
-          fill="#0078f1"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            d="M5.16108 14.9083C4.45387 15.7165 5.02785 16.9814 6.1018 16.9814H17.898C18.972 16.9814 19.5459 15.7165 18.8388 14.9083L13.3169 8.59762C12.6197 7.80079 11.3801 7.80079 10.6829 8.59762L5.16108 14.9083ZM6.65274 15.4814L11.8118 9.58537C11.9114 9.47154 12.0885 9.47154 12.1881 9.58537L17.3471 15.4814H6.65274Z"
-          />
-        </svg>
+      >
+        <div class="title" +click="eval(collapse_btn_click)">
+          <span>${title}</span>
+          <svg
+            class="collapse-btn"
+            viewBox="0 0 24 24"
+            fill="#0078f1"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M5.16108 14.9083C4.45387 15.7165 5.02785 16.9814 6.1018 16.9814H17.898C18.972 16.9814 19.5459 15.7165 18.8388 14.9083L13.3169 8.59762C12.6197 7.80079 11.3801 7.80079 10.6829 8.59762L5.16108 14.9083ZM6.65274 15.4814L11.8118 9.58537C11.9114 9.47154 12.0885 9.47154 12.1881 9.58537L17.3471 15.4814H6.65274Z"
+            />
+          </svg>
+        </div>
+        <div class="content">
+          <div class="assignee">assigned to: ${assignee}</div>
+          <div class="details">${details}</div>
+          <button class="complete-button" +click="eval(complete_btn_click)">
+            ${complete?'completed':'not complete'}
+          </button>
+        </div>
       </div>
-      <div class="content">
-        <div class="assignee">assigned to: ${assignee}</div>
-        <div class="details">${details}</div>
-        <button class="complete-button" +click="eval(complete_btn_click)">
-          ${complete?'completed':'not complete'}
-        </button>
-      </div>
+      <demo_2></demo_2>
     </div>
   </body>
 </html>

@@ -22,6 +22,7 @@ export const loadingScene1Demo = () => {
 };
 
 export const loadingScene2Demo = () => {
+  //eval(dollar_class) converts to a string update that's updated
   const cardXML = `
 <div
   class="card"
@@ -57,10 +58,12 @@ export const loadingScene2Demo = () => {
   </div>
 </div>
   `;
-  const title = "create card";
+  const title = "task card";
   const assignee = "me";
-  const details =
-    "Try coding your own +click directives and $class directives!";
+  const details = `Try making your own +click and $class directives! 
+  Remember that +click accepts any statements, 
+  but $class accepts only 3 types; string, string array, 
+  and objects.`;
   const complete_btn_click = "complete=!complete";
   const collapse_btn_click = "collapse=!collapse";
   const dollar_class = "{complete, collapse}";
@@ -73,7 +76,6 @@ export const loadingScene2Demo = () => {
     details,
     collapse_btn_click,
     complete_btn_click,
-
     dollar_class,
     complete,
     collapse,
