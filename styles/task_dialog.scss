@@ -1,0 +1,36 @@
+$base-blue: #0078f1;
+
+#create-task-dialogue {
+  border: 0px;
+  border-radius: 0.5rem;
+  div {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1rem;
+    label {
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 0.8rem;
+      color: $base-blue;
+    }
+  }
+  .controls {
+    display: inline-block;
+    width: 100%;
+    #cancel {
+      float: inline-start;
+    }
+    #confirm {
+      float: inline-end;
+    }
+  }
+}
+#create-task-button {
+  border: 0;
+  height: 3.5rem;
+  font-size: 1.5rem;
+  &:hover {
+    background-color: $base-blue;
+    color: #f1f1f1;
+    transition: 0.6s;
+  }
+}

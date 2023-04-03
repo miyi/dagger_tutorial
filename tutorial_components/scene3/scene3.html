@@ -1,0 +1,21 @@
+<html>
+  <script type="dagger/configs">
+    {
+      "template": {
+        "uri": "#template",
+        "style": "style"
+      },
+      "style": "./scene3.css",
+      "task_form": "./task_form.html",
+      "js": "./scene3.js",
+      "task_card": "./card_template_s3.html"
+    }
+  </script>
+  <template id="template">
+    <div class="task_bar" +loading="loadingTasks()">
+      <!-- loading scope in task bar require task objects listed in an array named tasks, task objects must contain string properties title, assignee, and details -->
+      <task_form></task_form>
+      <task_card $each="tasks"></task_card>
+    </div>
+  </template>
+</html>

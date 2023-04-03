@@ -1,0 +1,46 @@
+<div id="create-task-modal" class="modal" +loading="{ dialogBox: null }">
+  <dialog id="create-task-dialogue" +loaded="dialogBox=$node">
+    <form
+      id="create-task-form"
+      method="dialog"
+      +loading="{
+      title: '',
+      assignee: '',
+      details: '',
+    }"
+    >
+      <div>
+        <label>title:</label>
+        <input $value#input="title" maxlength="25" required />
+      </div>
+
+      <div>
+        <label
+          >assigned to:
+          <select $selected="assignee" required>
+            <option value="">Choose…</option>
+            <option value="me">me</option>
+            <option value="Olivia">Olivia Smith</option>
+            <option value="Noah">Noah Mallory</option>
+          </select>
+        </label>
+      </div>
+      <div>
+        <label>details:</label>
+        <textarea
+          rows="4"
+          cols="30"
+          maxlength="120"
+          $value="details"
+        ></textarea>
+      </div>
+      <span class="controls">
+        <button id="cancel" formnovalidate>Cancel</button>
+        <button id="confirm" value="default" +click="tasks.push({title, assignee, details})">Confirm</button>
+      </span>
+    </form>
+  </dialog>
+  <button id="create-task-button" class="card" +click="dialogBox.showModal()">
+    + create
+  </button>
+</div>

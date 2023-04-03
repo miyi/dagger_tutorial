@@ -8,7 +8,7 @@ export const loadingHtml = () => ({
   demo: `
 <div class="card" +loading="{
       title: '%%title%%', 
-    assignee: '%%assignee%%',
+   assignee: '%%assignee%%',
     details: '%%details%%',
 }">
   <div class="title">{{title}}</div>

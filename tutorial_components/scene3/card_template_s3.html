@@ -2,20 +2,16 @@
   class="card"
   $class="{complete, collapse}"
   +loading="{
-    title: 'task card', 
-    assignee: 'me',
-    details: 'play around with the scope variables',
     complete: false,
     collapse: true,
-    complete_btn_click: 'complete=!complete',
-    collapse_btn_click: 'collapse=!collapse'
   }"
+  +loaded="console.log($scope)"
 >
-  <div class="title" +click="eval(collapse_btn_click)">
-    <span>${title}</span>
+  <div class="title" +click="collapse=!collapse">
+    <span>${$scope.item.title}</span>
     <svg
       class="collapse-btn"
-      viewBox="0 0 24 24"
+      viewBox="0 0 22 22"
       fill="#0078f1"
       xmlns="http://www.w3.org/2000/svg"
     >
@@ -25,9 +21,9 @@
     </svg>
   </div>
   <div class="content">
-    <div class="assignee">assigned to: ${assignee}</div>
-    <div class="details">${details}</div>
-    <button class="complete-button" +click="eval(complete_btn_click)">
+    <div class="assignee">assigned to: ${$scope.item.assignee}</div>
+    <div class="details">${$scope.item.details}</div>
+    <button class="complete-button" +click="complete=!complete">
       ${complete?'completed':'not complete'}
     </button>
   </div>

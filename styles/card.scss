@@ -9,7 +9,7 @@ $complete-green: rgb(29, 217, 29);
   width: 300px;
   background-color: #f1f1f1;
   box-shadow: 10px 5px 5px $shadow-grey;
-  padding: 1rem;
+  padding: 0.75rem;
   display: flex;
   flex-direction: column;
   border-radius: 1rem;
@@ -58,8 +58,8 @@ $complete-green: rgb(29, 217, 29);
   }
   //repetition for the purpose of the scene 1
   .details {
-    margin-top: 8px;
-    margin-bottom: 8px;
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
     width: 100%;
   }
   .assignee {

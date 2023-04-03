@@ -26,13 +26,11 @@
     <!-- dagger.js script -->
     <script type="dagger/configs">
       {
-        "demo_container": {
-          "uri": "./demo_module/demo_module_namespace.html"
-        },
-        "demo_2": "./tutorial_components/card_complete_collapse.html",
-        "style": {"uri": "./styles/card.css", "scoped": false},
+        "demo_container": "./demo_module/demo_module_namespace.html",
+        "card_style": {"uri": "./styles/card.css", "scoped": false},
         "scene1": {"uri": "./js/scene1.js", "anonymous": false},
-        "scene2": {"uri": "./js/scene2.js", "anonymous": false}
+        "scene2": {"uri": "./js/scene2.js", "anonymous": false},
+        "scene3": "./tutorial_components/scene3/scene3.html"
       }
     </script>
     <!-- dagger configs -->
@@ -41,8 +39,8 @@
   <body dg-cloak>
     <div class="section">
       <div class="chapter-title">Welcome to dagger.js</div>
-      <span
-        >dagger.js is a directive based web framework that is natively supported
+      <p>
+        dagger.js is a directive based web framework that is natively supported
         by the browser. This means that there are no apis and no compiling,
         which makes for a clean and intuitive way to design the modern web.
         Every dagger functionality is accessible through the dagger defined
@@ -51,54 +49,111 @@
         how a few specific directives work, then work our way to the bigger
         picture where we create reusable components and put it all together into
         a functional web.
-      </span>
+      </p>
       <div class="section-title">State management</div>
-      <span>
+      <p>
         Having interactive features on a single webpage is the defining
         characteristics of the modern web. Html elements must react to
         constantly changing data or complex user interactions. Behind it all is
         a state management system that keeps track of all the moving pieces.
         Dagger makes it easy through lifecycle directives. Let's see what that
-        looks like in action by creating a task card.</span
-      >
+        looks like in action by creating a task card.
+      </p>
     </div>
     <demo_container +loading="scene1.loadingData()">
       <div class="grid-container" height="360px">
         <demo_html +loading="scene1.loadingHtml()"></demo_html>
-        <demo_browser $watch="html=scene1.loadingBrowser(title, assignee, details)" +loading="{html: ''}"></demo_browser>
+        <demo_browser
+          $watch="html=scene1.loadingBrowser(title, assignee, details)"
+          +loading="{html: ''}"
+        ></demo_browser>
       </div>
     </demo_container>
     <div class="section">
-      <span @raw>
+      <p @raw>
         The +loading directive created 3 scope variables: title, assignee, and
         details. The element tags act as natural scopes for the variables, which
         can be readily access and manipulated anywere within the scope with the
         ${} markup. the onloading directive accepts any object, or functions
         that resolve into an object. play around with scope variable values to
         see how it affects the output.
-      </span>
-      <div class="section-title">Manipulating the scope variables</div>
-      <span>
-        We can manipulate the scope variable from the browser to add more
-        interativity to the task card. First let's create a scope variable
-        called is complete, and a button that switches the completed status of
-        the card. To add some flare, let's show an orange border for incomplete
-        tasks and a green border for completed tasks.
-      </span>
+      </p>
+      <div class="section-title">
+        Manipulating the scope variables with directives
+      </div>
+      <p>
+        We can manipulate the scope variable from the browser by adding more
+        interactive elements to the task card. First let's create 2 boolean
+        scope variables called complete and collpase. Then we add a button that
+        switches between the boolean states of these variables. When the
+        complete status is true, let's turn the card green, and when collapse is
+        true let's shorten the card to just show the title.
+      </p>
     </div>
     <demo_container +loading="scene2.loadingData()">
-      ${$scope.dollar_class}
       <div class="grid-container" height="380px">
         <demo_html +loading="scene2.loadingHtml()"></demo_html>
-        <demo_browser $watch="html=scene2.loadingBrowser(
+        <demo_browser
+          $watch="html=scene2.loadingBrowser(
           dollar_class,
           complete,
           complete_btn_click,
           collapse_btn_click,
-          collapse)" +loading="{html: ''}"
+          title,
+          assignee,
+          details,
+          collapse)"
+          +loading="{html: ''}"
         ></demo_browser>
       </div>
     </demo_container>
+    <div class="section">
+      <p>
+        To accomplish the visual effects we wrote a CSS class "complete" that
+        turns the card green, and another CSS class "collapse" that shortens the
+        card and adds transition, what we want to show is dagger can activate
+        desired effects through the use of dagger directives.
+      </p>
+      <div class="sub-title">Event directives</div>
+      <p>
+        First let's talk about the event directive +click. In general, event
+        directives work by attaching an EventListener to the host, listens to
+        the event type following the + sign, and executes the statement when the
+        event is triggered. There is a dagger event directive for every UI event
+        type. For example the +keydown directive should trigger the assigned
+        statement when the user presses something on the keyboard.
+      </p>
+      <p>
+        There are 2 instances of +click directive in our task card example. The
+        +click directive in the complete button evaluates the scope variable
+        "complete", and toggles the variable value on every click. The +click
+        directive in the title works in the same way. Clicking on the div with
+        class "title" toggles the "collapse" scope variable. Try changing the
+        +click directives to see what happens.
+      </p>
+      <div class="sub-title">Control directives</div>
+      <p>
+        Not only do we need to toggle the scope variables, but we also need to
+        achieve the visual effects depending on their values. We can achieve
+        that with the use of the $class control directive. Control directives
+        differentiates from event directives in that control directives
+        generally watches for changes in the scope variables in its input.
+        Control directives all start with the symbol $, and can recompute
+        results that whenever their assigned scope variables in real time.
+      </p>
+      <p>
+        In this card example, we used the $class directive in particular to add
+        or remove the corresponding class names depending on the state of the
+        "complete" and "collapse" scope variables. $class accepts any javascript
+        function that resolves into 3 types, objects, arrays, and strings. For
+        our purpose we used the object. When assigned an object $class evaluates
+        the value of the key. If evaluated to be true, the key name is added to
+        the class attribute of the host. Because the computation process of
+        $class included scope variables "complete" and "collapse", this
+        directive now watches for their changes to update the class names when
+        needed.
+      </p>
     </div>
+    <scene3></scene3>
   </body>
 </html>
