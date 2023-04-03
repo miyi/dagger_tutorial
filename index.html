@@ -72,10 +72,10 @@
     <div class="section">
       <p @raw>
         The +loading directive created 3 scope variables: title, assignee, and
-        details. The element tags act as natural scopes for the variables, which
-        can be readily access and manipulated anywere within the scope with the
-        ${} markup. the onloading directive accepts any object, or functions
-        that resolve into an object. play around with scope variable values to
+        details. The element tags act as a boundary for the scope variables,
+        which can be manipulated anywhere within the enclosure. ///${} inline
+        directive.../// the +loading directive accepts any object, or functions
+        that resolve into an object. Play around with scope variable values to
         see how it affects the output.
       </p>
       <div class="section-title">
@@ -117,14 +117,15 @@
       <div class="sub-title">Event directives</div>
       <p>
         First let's talk about the event directive +click. In general, event
-        directives work by attaching an EventListener to the host, listens to
-        the event type following the + sign, and executes the statement when the
-        event is triggered. There is a dagger event directive for every UI event
-        type. For example the +keydown directive should trigger the assigned
-        statement when the user presses something on the keyboard.
+        directives work by attaching to the host element an eventListener that
+        listens to the event type following the + sign, and executes the
+        statement when the event is triggered. There is a dagger event directive
+        for every UI event type. For example the +keydown directive should
+        trigger the assigned statement when the user presses something on the
+        keyboard.
       </p>
       <p>
-        There are 2 instances of +click directive in our task card example. The
+        There are 2 instances of +click directives in our task card example. The
         +click directive in the complete button evaluates the scope variable
         "complete", and toggles the variable value on every click. The +click
         directive in the title works in the same way. Clicking on the div with
@@ -134,11 +135,11 @@
       <div class="sub-title">Control directives</div>
       <p>
         Not only do we need to toggle the scope variables, but we also need to
-        achieve the visual effects depending on their values. We can achieve
-        that with the use of the $class control directive. Control directives
-        differentiates from event directives in that control directives
-        generally watches for changes in the scope variables in its input.
-        Control directives all start with the symbol $, and can recompute
+        achieve the visual effects depending on those scope values. We can
+        achieve that with the use of the $class control directive. Control
+        directives differentiates from event directives in that control
+        directives generally watches for changes in the scope variables in its
+        input. Control directives all start with the symbol $, and can recompute
         results that whenever their assigned scope variables in real time.
       </p>
       <p>
@@ -149,9 +150,8 @@
         our purpose we used the object. When assigned an object $class evaluates
         the value of the key. If evaluated to be true, the key name is added to
         the class attribute of the host. Because the computation process of
-        $class included scope variables "complete" and "collapse", this
-        directive now watches for their changes to update the class names when
-        needed.
+        $class included scope variables "complete" and "collapse", the directive
+        now watches for their changes to update the class names when needed.
       </p>
     </div>
     <scene3></scene3>
