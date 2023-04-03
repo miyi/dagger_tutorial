@@ -71,12 +71,13 @@
     </demo_container>
     <div class="section">
       <p @raw>
-        The +loading directive created 3 scope variables: title, assignee, and
-        details. The element tags act as a boundary for the scope variables,
-        which can be manipulated anywhere within the enclosure. ///${} inline
-        directive.../// the +loading directive accepts any object, or functions
-        that resolve into an object. Play around with scope variable values to
-        see how it affects the output.
+        We used the +loading directive to create 3 scope variables: title,
+        assignee, and details. The element where +loading is defined acts as a
+        boundary for the scope variable data, which can be manipulated anywhere
+        within the boundary. In our example, ${title} resolves into "create
+        card". Dagger recognizes anything inside the ${...} markup as native
+        javascript code; it sees title as a javascript variable, which points
+        to the string value defined in the +loading directive. 
       </p>
       <div class="section-title">
         Manipulating the scope variables with directives
