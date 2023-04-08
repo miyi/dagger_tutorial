@@ -1,17 +1,18 @@
 <div id="create-task-modal" class="modal" +loading="{ dialogBox: null }">
-  <dialog id="create-task-dialogue" +loaded="dialogBox=$node">
-    <form
-      id="create-task-form"
-      method="dialog"
-      +loading="{
+  <dialog
+    id="create-task-dialogue"
+    +loaded="dialogBox=$node"
+    +loading="{
       title: '',
       assignee: '',
       details: '',
     }"
-    >
+    +close="title='',assignee='', details=''"
+  >
+    <form id="create-task-form" method="dialog">
       <div>
         <label>title:</label>
-        <input $value#input="title" maxlength="25" required />
+        <input $value="title" maxlength="25" required />
       </div>
 
       <div>
@@ -32,11 +33,20 @@
           cols="30"
           maxlength="120"
           $value="details"
+          required
         ></textarea>
       </div>
       <span class="controls">
-        <button id="cancel" formnovalidate>Cancel</button>
-        <button id="confirm" value="default" +click="tasks.push({title, assignee, details})">Confirm</button>
+        <button
+          id="cancel"
+          +click="title='',assignee='',details=''"
+          formnovalidate
+        >
+          Cancel
+        </button>
+        <button id="confirm" type="submit" +click="pushToTasks($scope, tasks)">
+          Confirm
+        </button>
       </span>
     </form>
   </dialog>

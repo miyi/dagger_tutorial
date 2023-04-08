@@ -24,19 +24,23 @@ body {
     font-weight: 400;
   }
   p {
-    margin: 0.25rem 0px;
+    margin: 0.75rem 0px;
   }
 }
 
 .grid-container {
   width: 100%;
+  height: max-content;
   margin: 1rem 0px;
   display: grid;
-  grid-gap: 2rem;
+  grid-gap: 1rem 1.5rem;
   grid-template-columns: 1fr 1fr;
   justify-items: center;
   align-items: center;
   overflow: hidden;
+  .text {
+    padding: 2rem;
+  }
 }
 
 html * {

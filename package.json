@@ -1,0 +1,27 @@
+{
+  "name": "dg_tutorial",
+  "version": "1.0.0",
+  "description": "",
+  "main": "dagger.js",
+  "type": "module",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/miyi/dagger_tutorial.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/miyi/dagger_tutorial/issues"
+  },
+  "homepage": "https://github.com/miyi/dagger_tutorial#readme",
+  "devDependencies": {
+    "chokidar": "^3.5.3",
+    "node-sass": "^8.0.0"
+  }
+}

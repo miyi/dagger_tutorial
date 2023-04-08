@@ -11,7 +11,7 @@
   </script>
   <template id="template">
     <div class="code-container" +loading="{demoHtml: produceDemoHtml(demo)}">
-      <span class="sandbox-label">html</span>
+      <span class="sandbox-label">${label?label:'html'}</span>
       <div class="code-box">
         <pre><code class="html" $html="demoHtml"></code></pre>
       </div>

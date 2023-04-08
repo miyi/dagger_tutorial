@@ -20,17 +20,17 @@
     <script
       type="module"
       crossorigin="anonymous"
-      src="https://cdn.jsdelivr.net/npm/@peakman/dagger.js@0.9.17/dagger.js"
+      src="./dagger.js"
       defer
     ></script>
     <!-- dagger.js script -->
     <script type="dagger/configs">
       {
-        "demo_container": "./demo_module/demo_module_namespace.html",
+        demo_container: "./demo_module/demo_module_namespace.html",
         "card_style": {"uri": "./styles/card.css", "scoped": false},
         "scene1": {"uri": "./js/scene1.js", "anonymous": false},
         "scene2": {"uri": "./js/scene2.js", "anonymous": false},
-        "scene3": "./tutorial_components/scene3/scene3.html"
+        "scene3": "./tutorial_components/scene3/scene3.html",
       }
     </script>
     <!-- dagger configs -->
@@ -76,8 +76,8 @@
         boundary for the scope variable data, which can be manipulated anywhere
         within the boundary. In our example, ${title} resolves into "create
         card". Dagger recognizes anything inside the ${...} markup as native
-        javascript code; it sees title as a javascript variable, which points
-        to the string value defined in the +loading directive. 
+        javascript code; it sees title as a javascript variable, which points to
+        the string value defined in the +loading directive.
       </p>
       <div class="section-title">
         Manipulating the scope variables with directives
@@ -120,10 +120,10 @@
         First let's talk about the event directive +click. In general, event
         directives work by attaching to the host element an eventListener that
         listens to the event type following the + sign, and executes the
-        statement when the event is triggered. There is a dagger event directive
-        for every UI event type. For example the +keydown directive should
-        trigger the assigned statement when the user presses something on the
-        keyboard.
+        expression when the event is triggered. There is a dagger event
+        directive for every UI event type. For example the +keydown directive
+        should trigger the assigned expression when the user presses something
+        on the keyboard.
       </p>
       <p>
         There are 2 instances of +click directives in our task card example. The
@@ -154,7 +154,47 @@
         $class included scope variables "complete" and "collapse", the directive
         now watches for their changes to update the class names when needed.
       </p>
+      <div class="section-title">resource management with dagger/configs</div>
+      <p>
+        Now that the card component is getting more complex, writing all the
+        javascript logics inside the html file is starting to feel convoluted.
+        Let's first separate out the javascript from the html into their
+        respective files card.js and card.html.
+      </p>
     </div>
-    <scene3></scene3>
+    <demo_container>
+      <div class="grid-container">
+        <demo_js +loading="scene2.loadingSeparatedJs()"></demo_js>
+        <demo_html +loading="scene2.loadingSeparatedHtml()"></demo_html>
+        <div class="text">
+          <p>
+            We offloaded +loading and +click functions to card.js. Dagger
+            directives will execute any javascript without extra apis. Simply
+            pass the relevant scope variables into your function as parameters
+            to manipulate them.
+          </p>
+          <p>
+            Now we need to link card.js and card.html together. Exposing all
+            javascript code as globally will run into naming conflicts in larger
+            projects, so dagger manages a heirarchy tree for it's resources
+            through dagger/configs. We call it namespace, and we will discuss it
+            in greater details in the next tutorial. For now, thinking of it
+            like importing another file. The imported content is now exposed
+            everywhere in the current file.
+          </p>
+        </div>
+        <demo_html +loading="scene2.loadingConfigsHtml()"></demo_html>
+      </div>
+      <div class="section">
+        <div class="chapter-title">Congrats &#128079;</div>
+        <p>
+          You made it through the first tutorial &#127881; Now you know how to
+          make a simple card component with dagger directives and
+          dagger/configs. Next we'll show you how to make more complex
+          components with more directives and abstractions.
+        </p>
+      </div>
+    </demo_container>
+    <!-- <scene3></scene3> -->
   </body>
 </html>

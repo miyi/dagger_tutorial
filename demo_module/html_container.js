@@ -20,29 +20,29 @@ function replaceWithInput(str) {
   return demoCode;
 }
 
-function removeAttributes(raw) {
-  // create a temporary element to hold the html
-  var tempEl = document.createElement("div");
-  tempEl.innerHTML = raw;
+// function removeAttributes(raw) {
+//   // create a temporary element to hold the html
+//   var tempEl = document.createElement("div");
+//   tempEl.innerHTML = raw;
 
-  // loop through all elements and remove their attributes
-  var elements = tempEl.getElementsByTagName("*");
-  for (var i = 0; i < elements.length; i++) {
-    var attrs = elements[i].attributes;
-    for (var j = attrs.length - 1; j >= 0; j--) {
-      isDagger(attrs[j].name)
-        ? true
-        : elements[i].removeAttribute(attrs[j].name);
-    }
-  }
+//   // loop through all elements and remove their attributes
+//   var elements = tempEl.getElementsByTagName("*");
+//   for (var i = 0; i < elements.length; i++) {
+//     var attrs = elements[i].attributes;
+//     for (var j = attrs.length - 1; j >= 0; j--) {
+//       isDagger(attrs[j].name)
+//         ? true
+//         : elements[i].removeAttribute(attrs[j].name);
+//     }
+//   }
 
-  // return the modified html as a string
-  return tempEl.innerHTML;
-}
+//   // return the modified html as a string
+//   return tempEl.innerHTML;
+// }
 
 export const produceDemoHtml = (raw) => {
-  const codeWithoutAttr = removeAttributes(raw);
-  let hlCode = hljs.highlight(codeWithoutAttr, { language: "xml" }).value;
+  // const codeWithoutAttr = removeAttributes(raw);
+  const hlCode = hljs.highlight(raw, { language: "xml" }).value;
   const codeWithInputs = replaceWithInput(hlCode);
   return codeWithInputs;
 };

@@ -1,37 +1,27 @@
 #create-task-dialogue {
   border: 0px;
-  border-radius: 0.5rem;
-}
-#create-task-dialogue div {
-  display: flex;
-  flex-direction: column;
-  margin-bottom: 1rem;
-}
-#create-task-dialogue div label {
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 0.8rem;
-  color: #0078f1;
-}
-#create-task-dialogue .controls {
-  display: inline-block;
-  width: 100%;
-}
-#create-task-dialogue .controls #cancel {
-  float: inline-start;
-}
-#create-task-dialogue .controls #confirm {
-  float: inline-end;
-}
+  border-radius: 0.5rem; }
+  #create-task-dialogue div {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1rem; }
+    #create-task-dialogue div label {
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 0.8rem;
+      color: #0078f1; }
+  #create-task-dialogue .controls {
+    display: inline-block;
+    width: 100%; }
+    #create-task-dialogue .controls #cancel {
+      float: inline-start; }
+    #create-task-dialogue .controls #confirm {
+      float: inline-end; }
 
 #create-task-button {
   border: 0;
   height: 3.5rem;
-  font-size: 1.5rem;
-}
-#create-task-button:hover {
-  background-color: #0078f1;
-  color: #f1f1f1;
-  transition: 0.6s;
-}
-
-/*# sourceMappingURL=task_dialog.css.map */
+  font-size: 1.5rem; }
+  #create-task-button:hover {
+    background-color: #0078f1;
+    color: #f1f1f1;
+    transition: 0.6s; }

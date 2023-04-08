@@ -1,0 +1,20 @@
+<html>
+  <script type="dagger/configs">
+    {
+      "template": {
+        "style":"style",
+        "uri": "#template"
+      },
+      "style": "./code_container.css",
+      "script": "./js_container.js"
+    }
+  </script>
+  <template id="template">
+    <div class="code-container" +loading="{demoJs: produceDemoJs(demo)}">
+      <span class="sandbox-label">${label?label:"javascript"}</span>
+      <div class="code-box">
+        <pre><code class="javascript" $html="demoJs"></code></pre>
+      </div>
+    </div>
+  </template>
+</html>

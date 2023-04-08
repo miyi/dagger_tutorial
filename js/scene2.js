@@ -13,8 +13,7 @@ export const loadingData = () => ({
   input_processors: {},
 });
 
-export const loadingHtml = () => ({
-  demo: `
+const loadingHtmlWithClassNames = `
 <div
   class="card"
   $class="@@dollar_class@@"
@@ -29,11 +28,40 @@ export const loadingHtml = () => ({
 >
   <div class="title" +click="@@collapse_btn_click@@">
     <span>{{title}}</span>
+    <svg></svg>
   </div>
   <div class="content">
     <div class="assignee">assigned to: {{assignee}}</div>
     <div class="details">{{details}}</div>
     <button class="complete-button" +click="@@complete_btn_click@@">
+      {{complete?'completed':'not complete'}}
+    </button>
+  </div>
+</div>
+`
+
+export const loadingHtml = () => ({
+  label: "card.html",
+  demo: `
+<div class="card"
+  $class="@@dollar_class@@"
+  +loading="{
+        title: 'task card', 
+     assignee: 'me',
+      details: 'Try coding your own +click directives 
+                and $class directives!',
+     complete: %%complete%%,
+     collapse: %%collapse%%,
+}"
+>
+  <div +click="@@collapse_btn_click@@">
+    <span>{{title}}</span>
+    <svg></svg>
+  </div>
+  <div>
+    <div>assigned to: {{assignee}}</div>
+    <div>{{details}}</div>
+    <button +click="@@complete_btn_click@@">
       {{complete?'completed':'not complete'}}
     </button>
   </div>
@@ -77,3 +105,92 @@ export const loadingBrowser = (
   </div>
 </div>
 `;
+
+export const loadingSeparatedJs = () => ({
+  label: "card.js",
+  demo: `
+export const loading = () => ({
+  title: "task card",
+  assignee: "me",
+  details: 'Try coding your own +click directives 
+  and $class directives!',
+  complete: false,
+  collapse: false,
+})
+
+export const collapse_btn_click = (collapse) => 
+  collapse=!collapse
+
+export const complete_btn_click = (complete) => 
+  complete=!complete
+`,
+});
+
+const loadingSeparatedHtmlWithClassNames = `
+<div
+  class="card"
+  $class="{collapse, complete}"
+  +loading="loading()"
+>
+  <div 
+    class="title" 
+    +click="collapse_btn_click(collapse)"
+  >
+    <span>{{title}}</span>
+    <svg></svg>
+  </div>
+  <div class="content">
+    <div class="assignee">assigned to: {{assignee}}</div>
+    <div class="details">{{details}}</div>
+    <button 
+      class="complete-button" 
+      +click="complete_btn_click(complete)"
+    >
+      {{complete?'completed':'not complete'}}
+    </button>
+  </div>
+</div>
+  `
+
+export const loadingSeparatedHtml = () => ({
+  label: "card.html",
+  demo: `
+<div class="card"
+  $class="{collapse, complete}"
+  +loading="loading()"
+>
+  <div 
+    +click="collapse_btn_click(collapse)"
+  >
+    <span>{{title}}</span>
+    <svg></svg>
+  </div>
+  <div>
+    <div>assigned to: {{assignee}}</div>
+    <div>{{details}}</div>
+    <button
+      +click="complete_btn_click(complete)"
+    >
+      {{complete?'completed':'not complete'}}
+    </button>
+  </div>
+</div>
+  `,
+});
+
+export const loadingConfigsHtml = () => ({
+  label: "card.html",
+  demo: `
+<html>
+  <script type="dagger/configs">
+    {
+      "js": "./card.js",
+      "style": "card.css"
+    }
+  </script>
+  <div class="card">
+    ...card html stuff
+  </div>
+</html>
+  `,
+});
