@@ -24,3 +24,7 @@ export const pushToTasks = ($scope, tasks) => {
   const validatedform = validateTaskForm($scope);
   validatedform ? tasks.push(validatedform) : null;
 };
+
+export const removeFromTasks = ($scope, tasks) => {
+  tasks.splice($scope.index, 1);
+};

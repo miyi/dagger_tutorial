@@ -119,16 +119,15 @@
       <p>
         First let's talk about the event directive +click. In general, event
         directives work by attaching to the host element an eventListener that
-        listens to the event type following the + sign, and executes the
-        expression when the event is triggered. There is a dagger event
+        listens to the event type following the + sign. There is a dagger event
         directive for every UI event type. For example the +keydown directive
-        should trigger the assigned expression when the user presses something
+        will trigger when the user presses something
         on the keyboard.
       </p>
       <p>
-        There are 2 instances of +click directives in our task card example. The
+        There are 2 instances of +click directives in our example. The
         +click directive in the complete button evaluates the scope variable
-        "complete", and toggles the variable value on every click. The +click
+        "complete", and toggles its value on every click. The +click
         directive in the title works in the same way. Clicking on the div with
         class "title" toggles the "collapse" scope variable. Try changing the
         +click directives to see what happens.
@@ -144,15 +143,15 @@
         results that whenever their assigned scope variables in real time.
       </p>
       <p>
-        In this card example, we used the $class directive in particular to add
-        or remove the corresponding class names depending on the state of the
-        "complete" and "collapse" scope variables. $class accepts any javascript
-        function that resolves into 3 types, objects, arrays, and strings. For
-        our purpose we used the object. When assigned an object $class evaluates
-        the value of the key. If evaluated to be true, the key name is added to
-        the class attribute of the host. Because the computation process of
-        $class included scope variables "complete" and "collapse", the directive
-        now watches for their changes to update the class names when needed.
+        In this card example, we used the $class directive to add or remove the
+        corresponding class names depending on the state of the "complete" and
+        "collapse" scope variables. $class accepts any javascript function that
+        resolves into any one of 3 types, object, array, and string. For our purpose we
+        chose the object. When assigned an object, $class evaluates the value of
+        the key. If evaluated to be true, the key name is then added to the class
+        attribute of the host. Because the computation process of $class
+        included scope variables "complete" and "collapse", the directive now
+        watches these variables for changes to update the class names when needed.
       </p>
       <div class="section-title">resource management with dagger/configs</div>
       <p>
@@ -178,9 +177,10 @@
             javascript code as globally will run into naming conflicts in larger
             projects, so dagger manages a heirarchy tree for it's resources
             through dagger/configs. We call it namespace, and we will discuss it
-            in greater details in the next tutorial. For now, thinking of it
-            like importing another file. The imported content is now exposed
-            everywhere in the current file.
+            in greater details in the next tutorial. For now, think of it as
+            importing another file. Dagger/configs can auto-identify the content
+            type, and now the resources are scoped within file where
+            dagger/configs is defined.
           </p>
         </div>
         <demo_html +loading="scene2.loadingConfigsHtml()"></demo_html>
@@ -195,6 +195,6 @@
         </p>
       </div>
     </demo_container>
-    <!-- <scene3></scene3> -->
+    <scene3></scene3>
   </body>
 </html>

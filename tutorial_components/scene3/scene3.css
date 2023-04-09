@@ -45,9 +45,23 @@
   padding: 0.5rem; }
   .card .title {
     font-size: 1rem; }
+    .card .title .delete-btn {
+      float: inline-end;
+      height: 1.2rem;
+      width: 1.2rem;
+      margin-right: 1rem;
+      fill: #0078f1;
+      transform: all 0.6s; }
+      .card .title .delete-btn:hover {
+        fill: red; }
     .card .title .collapse-btn {
-      height: 1rem;
-      width: 1rem; }
+      float: left;
+      height: 1.2rem;
+      width: 1.2rem; }
   .card .content .details {
     font-size: 0.8rem;
     line-height: 1.5; }
+
+.complete .title .delete-btn {
+  transition: 0.6s;
+  fill: #f1f1f1; }
