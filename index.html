@@ -27,10 +27,10 @@
     <script type="dagger/configs">
       {
         demo_container: "./demo_module/demo_module_namespace.html",
-        "card_style": {"uri": "./styles/card.css", "scoped": false},
-        "scene1": {"uri": "./js/scene1.js", "anonymous": false},
-        "scene2": {"uri": "./js/scene2.js", "anonymous": false},
-        "scene3": "./tutorial_components/scene3/scene3.html",
+        card_style: {uri: "./styles/card.css", "scoped": false},
+        scene1: {uri: "./js/scene1.js", "anonymous": false},
+        scene2: {"uri": "./js/scene2.js", "anonymous": false},
+        scene3: "./tutorial_components/scene3/scene3.html",
       }
     </script>
     <!-- dagger configs -->
@@ -121,16 +121,15 @@
         directives work by attaching to the host element an eventListener that
         listens to the event type following the + sign. There is a dagger event
         directive for every UI event type. For example the +keydown directive
-        will trigger when the user presses something
-        on the keyboard.
+        will trigger when the user presses something on the keyboard.
       </p>
       <p>
-        There are 2 instances of +click directives in our example. The
-        +click directive in the complete button evaluates the scope variable
-        "complete", and toggles its value on every click. The +click
-        directive in the title works in the same way. Clicking on the div with
-        class "title" toggles the "collapse" scope variable. Try changing the
-        +click directives to see what happens.
+        There are 2 instances of +click directives in our example. The +click
+        directive in the complete button evaluates the scope variable
+        "complete", and toggles its value on every click. The +click directive
+        in the title works in the same way. Clicking on the div with class
+        "title" toggles the "collapse" scope variable. Try changing the +click
+        directives to see what happens.
       </p>
       <div class="sub-title">Control directives</div>
       <p>
@@ -146,12 +145,13 @@
         In this card example, we used the $class directive to add or remove the
         corresponding class names depending on the state of the "complete" and
         "collapse" scope variables. $class accepts any javascript function that
-        resolves into any one of 3 types, object, array, and string. For our purpose we
-        chose the object. When assigned an object, $class evaluates the value of
-        the key. If evaluated to be true, the key name is then added to the class
-        attribute of the host. Because the computation process of $class
-        included scope variables "complete" and "collapse", the directive now
-        watches these variables for changes to update the class names when needed.
+        resolves into any one of 3 types, object, array, and string. For our
+        purpose we chose the object. When assigned an object, $class evaluates
+        the value of the key. If evaluated to be true, the key name is then
+        added to the class attribute of the host. Because the computation
+        process of $class included scope variables "complete" and "collapse",
+        the directive now watches these variables for changes to update the
+        class names when needed.
       </p>
       <div class="section-title">resource management with dagger/configs</div>
       <p>
@@ -195,6 +195,7 @@
         </p>
       </div>
     </demo_container>
+    <button style="display: inline-block; width: 300px">hello</button>
     <scene3></scene3>
   </body>
 </html>

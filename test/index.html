@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" href="../highlightjs/github-dark.min.css" />
     <script src="../highlightjs/highlight.min.js"></script>
+    <script src="./test.js"></script>
+    <style src="./test.css"></style>
     <style>
       [dg-cloak] {
         display: none !important;
@@ -19,18 +21,16 @@
     ></script>
     <!-- dagger.js script -->
     <script type="dagger/configs">
-      {
-        demo_module: "../demo_module/demo_module_namespace.html",
-        js: "./test.js"
-      }
     </script>
     <!-- dagger configs -->
     <title>dagger demo page</title>
   </head>
 
   <body dg-cloak>
-    <demo_module>
-      <demo_html +loading="loadingConfigsHtml()"></demo_html>
-    </demo_module>
+    <div class="container">
+      <div draggable="true" class="box">A</div>
+      <div draggable="true" class="box">B</div>
+      <div draggable="true" class="box">C</div>
+    </div>
   </body>
 </html>

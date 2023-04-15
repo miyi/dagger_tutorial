@@ -12,7 +12,7 @@
     <form id="create-task-form" method="dialog">
       <div>
         <label>title:</label>
-        <input $value="title" maxlength="25" required />
+        <input class="form-input" $value="title" maxlength="25" required />
       </div>
 
       <div>
@@ -29,6 +29,7 @@
       <div>
         <label>details:</label>
         <textarea
+          class="form-input"
           rows="4"
           cols="30"
           maxlength="120"
@@ -50,7 +51,7 @@
       </span>
     </form>
   </dialog>
-  <button id="create-task-button" class="card" +click="dialogBox.showModal()">
+  <button class="card create-task-button" +click="dialogBox.showModal()">
     + create
   </button>
 </div>

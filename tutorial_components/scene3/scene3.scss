@@ -6,16 +6,18 @@ $light-blue: #77b0e8;
   flex-direction: column;
   margin: 3rem;
   width: 100%;
+  height: auto;
   justify-content: center;
   align-items: center;
   background-color: #bababa;
   border-radius: 0.5rem;
   padding: 1rem;
-  gap: 0.5rem;
 }
 
 #create-task-dialogue {
   border: 0px;
+  width: 30rem;
+  padding: 2rem;
   border-radius: 0.5rem;
   div {
     display: flex;
@@ -23,8 +25,14 @@ $light-blue: #77b0e8;
     margin-bottom: 1rem;
     label {
       font-family: Arial, Helvetica, sans-serif;
-      font-size: 0.8rem;
+      font-size: 1.2rem;
       color: $base-blue;
+      margin-bottom: 0.5rem;
+    }
+    .form-input {
+      width: 100%;
+      padding: 0.25rem;
+      font-size: 1.2rem;
     }
   }
   .controls {
@@ -38,11 +46,12 @@ $light-blue: #77b0e8;
     }
   }
 }
-#create-task-button {
+.create-task-button {
+  cursor: pointer;
   border: 0;
-  padding: 0.5rem;
   font-size: 1rem;
   background-color: $base-blue;
+  align-items: center;
   color: #f1f1f1;
   transition: all 0.6s;
   &:hover {
@@ -51,24 +60,41 @@ $light-blue: #77b0e8;
     transition: 0.6s;
   }
 }
-
+.card-box {
+  margin: 0;
+  border: 0;
+  padding: 0.25rem;
+  border: solid;
+}
+.moveup {
+  transform: translate(0, -43.2px);
+}
+.movedown {
+  transform: translate(0, 43.2px);
+}
 .card {
   padding: 0.5rem;
+  transition: all 0.6s;
   .title {
     font-size: 1rem;
+    .title-text {
+      cursor: pointer;
+    }
     .delete-btn {
-      float: inline-end;
+      cursor: pointer;
+      float: right;
       height: 1.2rem;
       width: 1.2rem;
       margin-right: 1rem;
       fill: #0078f1;
-      transform: all 0.6s;
       &:hover {
         fill: red;
       }
     }
     .collapse-btn {
+      cursor: pointer;
       float: left;
+      margin: 0 0.25rem;
       height: 1.2rem;
       width: 1.2rem;
     }
@@ -79,12 +105,14 @@ $light-blue: #77b0e8;
       line-height: 1.5;
     }
   }
+  .drag-in {
+    transform: translate(0, 43.2px);
+  }
 }
 
 .complete {
   .title {
     .delete-btn {
-      transition: 0.6s;
       fill: #f1f1f1;
     }
   }

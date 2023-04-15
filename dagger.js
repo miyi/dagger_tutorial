@@ -544,7 +544,7 @@ export default ((
           sheet.insertRule(rule.cssText, iterator.index++);
           rule.name = originalName;
         }
-        if (rule.cssRules) {
+        if ((rule.cssRules||[]).length) {
           forEach(rule.cssRules, (rule) =>
             scopedRuleResolver(sheet, rule, name, iterator)
           );
