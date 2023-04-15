@@ -2,6 +2,7 @@ $base-blue: #0078f1;
 $light-blue: #77b0e8;
 
 .task_bar {
+  transition: all 0.4s;
   display: flex;
   flex-direction: column;
   margin: 3rem;
@@ -49,6 +50,7 @@ $light-blue: #77b0e8;
 .create-task-button {
   cursor: pointer;
   border: 0;
+  margin-bottom: 0.25rem;
   font-size: 1rem;
   background-color: $base-blue;
   align-items: center;
@@ -61,10 +63,28 @@ $light-blue: #77b0e8;
   }
 }
 .card-box {
+  position: relative;
   margin: 0;
   border: 0;
   padding: 0.25rem;
-  border: solid;
+  .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: -1;
+    background-color: rgba(255, 0, 0, 0);
+  }
+  .active {
+    z-index: 10;
+  }
+  .dragging {
+    position: relative;
+    top: 0;
+    left: 0;
+    z-index: -5;
+  }
 }
 .moveup {
   transform: translate(0, -43.2px);
@@ -73,8 +93,9 @@ $light-blue: #77b0e8;
   transform: translate(0, 43.2px);
 }
 .card {
+  transition: all 0.5s;
   padding: 0.5rem;
-  transition: all 0.6s;
+
   .title {
     font-size: 1rem;
     .title-text {
@@ -104,9 +125,6 @@ $light-blue: #77b0e8;
       font-size: 0.8rem;
       line-height: 1.5;
     }
-  }
-  .drag-in {
-    transform: translate(0, 43.2px);
   }
 }
 

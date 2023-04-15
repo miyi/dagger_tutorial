@@ -1,21 +1,16 @@
-<div
-  class="card-box"
-  +dragenter#prevent="dragIndex=index"
-  +dragover#prevent="dragIndex=index"
-  +dragleave="dragIndex=null"
->
+<div class="card-box" +dragenter#prevent="dropIndex=index">
   <div
     draggable="true"
     class="card"
-    $class="{complete, collapse}"
+    $class="{complete, collapse, moveup:moveup(index, dragIndex, dropIndex), movedown:movedown(index, dragIndex, dropIndex), dragging: dragIndex==index}"
     +loading="{
     complete: false,
     collapse: true,
   }"
-    +dragstart="dragItem=index"
-    +dragend="dragEnd(tasks, dragItem, dragIndex),dragItem=null, dragIndex=null"
+    +dragstart="dragIndex=index"
+    +dragend="dragEnd(tasks, dragIndex, dropIndex), dragIndex=null, dropIndex=null"
   >
-    <div class="title">
+    <div class="title" >
       <span class="title-text" +click="collapse=!collapse"
         >${$scope.item.title}
       </span>
@@ -49,4 +44,10 @@
       </button>
     </div>
   </div>
+  <div
+    class="overlay"
+    $class="{active: dropIndex!==null}"
+    +dragover#prevent="dropIndex=index"
+    +dragleave="dropIndex=null"
+  ></div>
 </div>

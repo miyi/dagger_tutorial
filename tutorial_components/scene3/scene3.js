@@ -18,8 +18,8 @@ export const loadingTasks = () => {
       "create multiple taskbars, and allow task cards to drag across different taskbars.",
   };
   return {
-    dragItem: null,
     dragIndex: null,
+    dropIndex: null,
     tasks: [task1, task2, task3],
   };
 };
@@ -33,7 +33,7 @@ const validateTaskForm = ($scope) => {
   return Object.assign({}, Object.fromEntries(formEntries));
 };
 
-export const pushToTasks = ($scope, tasks, position = 0) => {
+export const pushToTasks = ($scope, tasks) => {
   //validation
   const validatedform = validateTaskForm($scope);
   validatedform && tasks.push(validatedform);
@@ -43,30 +43,34 @@ export const removeFromTasks = ($scope, tasks) => {
   tasks.splice($scope.index, 1);
 };
 
-export const dragStart = (cardIndex, dragItem) => {
-  console.log(cardIndex + " " + dragItem);
-  dragItem = cardIndex;
+export const dragStart = (cardIndex, dragIndex) => {
+  console.log(cardIndex + " " + dragIndex);
+  dragIndex = cardIndex;
 };
 
-export const dragEnd = (tasks, dragItem, dragIndex) => {
-  console.log("item: ", dragItem);
-  console.log("index: ", dragIndex);
-  if (dragItem != dragIndex) {
-    const item = tasks.splice(dragItem, 1);
+export const smartDragStart = (event) => {
+  
+}
+
+export const dragEnd = (tasks, dragIndex, dropIndex) => {
+  // console.log("item: ", dragIndex);
+  // console.log("index: ", dropIndex);
+  if (dragIndex != dropIndex) {
+    const item = tasks.splice(dragIndex, 1);
     // console.log(item);
-    tasks.splice(dragIndex, 0, item[0]);
-    const newtasks = tasks.map((x)=>x)
-    tasks = newtasks
-    console.log(tasks);
+    tasks.splice(dropIndex, 0, item[0]);
+    const newtasks = tasks.map((x) => x);
+    tasks = newtasks;
+    // console.log(tasks);
   }
 };
 
-export const movedown = (index, dragItem, dragIndex) => {
+export const movedown = (index, dragIndex, dropIndex) => {
   if (
-    dragItem !== null &&
     dragIndex !== null &&
-    dragIndex >= index &&
-    index < dragItem
+    dropIndex !== null &&
+    dropIndex <= index &&
+    index < dragIndex
   ) {
     return true;
   } else {
@@ -74,12 +78,12 @@ export const movedown = (index, dragItem, dragIndex) => {
   }
 };
 
-export const moveup = (dragItem, dragIndex) => {
+export const moveup = (index, dragIndex, dropIndex) => {
   if (
-    dragItem !== null &&
     dragIndex !== null &&
-    dragIndex >= index &&
-    index > dragItem
+    dropIndex !== null &&
+    dropIndex >= index &&
+    index > dragIndex
   ) {
     return true;
   } else {

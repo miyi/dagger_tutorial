@@ -1,4 +1,5 @@
 .task_bar {
+  transition: all 0.4s;
   display: flex;
   flex-direction: column;
   margin: 3rem;
@@ -39,6 +40,7 @@
 .create-task-button {
   cursor: pointer;
   border: 0;
+  margin-bottom: 0.25rem;
   font-size: 1rem;
   background-color: #0078f1;
   align-items: center;
@@ -50,10 +52,25 @@
     transition: 0.6s; }
 
 .card-box {
+  position: relative;
   margin: 0;
   border: 0;
-  padding: 0.25rem;
-  border: solid; }
+  padding: 0.25rem; }
+  .card-box .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: -1;
+    background-color: rgba(255, 0, 0, 0); }
+  .card-box .active {
+    z-index: 10; }
+  .card-box .dragging {
+    position: relative;
+    top: 0;
+    left: 0;
+    z-index: -5; }
 
 .moveup {
   transform: translate(0, -43.2px); }
@@ -62,8 +79,8 @@
   transform: translate(0, 43.2px); }
 
 .card {
-  padding: 0.5rem;
-  transition: all 0.6s; }
+  transition: all 0.5s;
+  padding: 0.5rem; }
   .card .title {
     font-size: 1rem; }
     .card .title .title-text {
@@ -86,8 +103,6 @@
   .card .content .details {
     font-size: 0.8rem;
     line-height: 1.5; }
-  .card .drag-in {
-    transform: translate(0, 43.2px); }
 
 .complete .title .delete-btn {
   fill: #f1f1f1; }
