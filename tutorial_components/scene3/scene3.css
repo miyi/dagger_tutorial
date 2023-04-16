@@ -52,8 +52,7 @@
 .card-box {
   margin: 0;
   border: 0;
-  padding: 0.25rem;
-  border: solid; }
+  padding: 0.25rem; }
 
 .moveup {
   transform: translate(0, -43.2px); }
