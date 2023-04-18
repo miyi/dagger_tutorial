@@ -48,8 +48,22 @@ export const dragStart = (cardIndex, dragIndex) => {
   dragIndex = cardIndex;
 };
 
-export const smartDragStart = (event) => {
-  
+export const smartDragStart = (event, taskObject) => {
+  const taskString = JSON.stringify(taskObject)
+  event.dataTransfer.clearData()
+  event.dataTransfer.setData("task",taskString)
+}
+
+export const smartDrop = (event, tasks, dragIndex, dropIndex) => {
+  const task = JSON.parse(event.dataTransfer.getData("task"))
+  if (task && dropIndex!==null) {
+    tasks.splice(dropIndex,0,task)
+    if (dragIndex) {
+      task.splice(dragIndex)
+    }
+    const newtasks = tasks.map((x) => x);
+    tasks = newtasks;
+  }
 }
 
 export const dragEnd = (tasks, dragIndex, dropIndex) => {
