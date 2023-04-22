@@ -13,6 +13,7 @@ $light-blue: #77b0e8;
   background-color: #bababa;
   border-radius: 0.5rem;
   padding: 1rem;
+  z-index: 1;
 }
 
 #create-task-dialogue {
@@ -80,10 +81,9 @@ $light-blue: #77b0e8;
     z-index: 10;
   }
   .dragging {
-    position: relative;
-    top: 0;
-    left: 0;
-    z-index: -5;
+    cursor: grabbing;
+    transition: 1ms;
+    opacity: 0;
   }
 }
 .moveup {
@@ -93,9 +93,9 @@ $light-blue: #77b0e8;
   transform: translate(0, 43.2px);
 }
 .card {
+  cursor: grab;
   transition: all 0.5s;
   padding: 0.5rem;
-
   .title {
     font-size: 1rem;
     .title-text {

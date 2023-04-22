@@ -13,7 +13,7 @@
     complete: false,
     collapse: true,
   }"
-    +dragstart="dragIndex=index"
+    +dragstart="dragIndex=index, console.log('dragstart')"
     +dragend="dragEnd(tasks, dragIndex, dropIndex), dragIndex=null, dropIndex=null"
   >
     <div class="title">

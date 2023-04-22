@@ -43,39 +43,36 @@ export const removeFromTasks = ($scope, tasks) => {
   tasks.splice($scope.index, 1);
 };
 
+// export const smartDragStart = (event, taskObject) => {
+//   const taskString = JSON.stringify(taskObject)
+//   event.dataTransfer.clearData()
+//   event.dataTransfer.setData("task",taskString)
+// }
+
+// export const smartDrop = (event, tasks, dragIndex, dropIndex) => {
+//   const task = JSON.parse(event.dataTransfer.getData("task"))
+//   if (task && dropIndex!==null) {
+//     tasks.splice(dropIndex,0,task)
+//     if (dragIndex) {
+//       task.splice(dragIndex)
+//     }
+//     const newtasks = tasks.map((x) => x);
+//     tasks = newtasks;
+//   }
+// }
+
 export const dragStart = (cardIndex, dragIndex) => {
   console.log(cardIndex + " " + dragIndex);
   dragIndex = cardIndex;
 };
-
-export const smartDragStart = (event, taskObject) => {
-  const taskString = JSON.stringify(taskObject)
-  event.dataTransfer.clearData()
-  event.dataTransfer.setData("task",taskString)
-}
-
-export const smartDrop = (event, tasks, dragIndex, dropIndex) => {
-  const task = JSON.parse(event.dataTransfer.getData("task"))
-  if (task && dropIndex!==null) {
-    tasks.splice(dropIndex,0,task)
-    if (dragIndex) {
-      task.splice(dragIndex)
-    }
-    const newtasks = tasks.map((x) => x);
-    tasks = newtasks;
-  }
-}
 
 export const dragEnd = (tasks, dragIndex, dropIndex) => {
   // console.log("item: ", dragIndex);
   // console.log("index: ", dropIndex);
   if (dragIndex != dropIndex) {
     const item = tasks.splice(dragIndex, 1);
-    // console.log(item);
+    // item is an array
     tasks.splice(dropIndex, 0, item[0]);
-    const newtasks = tasks.map((x) => x);
-    tasks = newtasks;
-    // console.log(tasks);
   }
 };
 
